@@ -10,6 +10,9 @@ var Concert = require('./style/concert.jpg');
 
 const wallpapers = [ {img: Jungle, playerColor: "#607D8B"}, {img: Music, playeCcolor: "#039BE5"},
     {img: Concert, playColor: "#00695C"}, {img: Sunflower, playerColor: "#E65100"}];
+
+var images = new Array();
+
 class App extends Component {
 
 
@@ -24,6 +27,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this.preload([Sunflower, Jungle, Music, Concert])
         this.startPolling()
     }
 
@@ -48,6 +52,14 @@ class App extends Component {
             index: index + 1
         })
     }
+
+    preload(playlist) {
+        for (let i = 0; i < playlist.length; i++) {
+            images[i] = new Image()
+            images[i].src = playlist[i]
+        }
+    }
+        
 
 
     render() {
