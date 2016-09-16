@@ -75,6 +75,11 @@ class Player extends React.Component {
         toggleClassInBody('with--menu')
     }
 
+
+    onTrackEnd() {
+        this.props.onTrackEnd();
+    }
+
     render() {
 
         const {
@@ -98,8 +103,8 @@ class Player extends React.Component {
                             vimeoConfig={vimeoConfig}
                             youtubeConfig={youtubeConfig}
                             fileConfig={fileConfig}
-
                             onDuration={duration => this.setState({ duration })}
+                            onEnded={this.onTrackEnd.bind(this)}
                         />
                     </div>
                     <div className="player-command-container">

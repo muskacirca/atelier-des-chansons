@@ -5,7 +5,7 @@ class Playlist extends React.Component {
 
     constructor(props) {
         super(props);
-        
+
         this.onChangeSong = this.onChangeSong
     }
 
@@ -16,7 +16,13 @@ class Playlist extends React.Component {
 
     renderSongList(playlist) {
         return playlist.map(track => {
-            return  <div key={track.url} className="pointer playlist-item" onClick={this.onChangeSong.bind(this, track)}>
+
+            let className = track === this.props.currentTrack ? "playlist-item-active" : "playlist-item";
+
+            return  <div key={track.url}
+                         className={"pointer " + className }
+                         onClick={this.onChangeSong.bind(this, track)}>
+
                         <h5 className="">{track.name}</h5>
                         <em className="">{track.author}</em>
                     </div>
@@ -30,6 +36,7 @@ class Playlist extends React.Component {
         let songs = this.renderSongList(this.props.playlist);
 
         return  <div className="menu-container">
+                    <h3>Playlist</h3>
                     <div className="playlist-container">
                         {songs}
                     </div>

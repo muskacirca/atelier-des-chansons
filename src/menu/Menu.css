@@ -28,3 +28,22 @@
     transition-duration: 0.3s;
     transform: translateX(0px);
 }
+
+.playlist-container {
+    text-align: left;
+    line-height: 0.1em;
+
+}
+
+
+.playlist-item {
+    margin-bottom: 1.5em;
+}
+
+.playlist-item-active {
+
+    margin-bottom: 1.5em;
+    color: #E65100;
+    font-weight: bold;
+
+}
