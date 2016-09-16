@@ -1,0 +1,73 @@
+.player-container {
+    background-color: #E65100;
+    display: flex;
+    padding: 1.5em;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.player-img {
+
+}
+
+
+.player-info {
+    margin-top: 0.9em;
+    margin-left: 2em;
+}
+
+.player-info strong {
+    font-size: x-large !important;
+}
+
+.player-info em {
+    font-size: medium !important;
+}
+
+
+.react-player {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player-command-container {
+}
+
+.player-command-container button{
+   margin-top: 1.2em;
+   margin-left: 1.3em;
+}
+
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+}
+
+
+/* Remove btn focus around bootstrap button */
+.btn:focus {
+    outline: none !important;
+}
