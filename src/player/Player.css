@@ -71,3 +71,11 @@
 .btn:focus {
     outline: none !important;
 }
+
+
+#menu {
+    align-self: center;
+    flex: 1;
+    text-align: right;
+    margin-right: 2.5em;
+}

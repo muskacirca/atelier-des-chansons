@@ -10,6 +10,7 @@
 .App-header {
   background: #222;
   background-image: url("./style/sunflowers.jpg");
+  font-family: Verdana, Geneva, sans-serif;
   height: 100%;
   padding: 20px;
   padding-bottom: 100px;
@@ -23,4 +24,8 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.pointer {
+  cursor: pointer;
 }

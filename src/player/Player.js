@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 
+import {
+    toggleClassInBody
+} from '../utils/utils'
+
 import './Player.css';
 class Player extends React.Component {
 
@@ -8,12 +12,14 @@ class Player extends React.Component {
         super(props);
 
         this.state = {
-            url: this.props.url,
+            track: this.props.track,
             playing: true,
             volume: 0.8,
             played: 0,
             loaded: 0,
-            duration: 0
+            duration: 0,
+            
+            isMenuOpen: false
         };
 
         this.playPause = this.playPause.bind(this);
@@ -23,6 +29,13 @@ class Player extends React.Component {
         this.onSeekChange.bind(this);
         this.onProgress.bind(this);
         this.onSeekMouseUp.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this)
+    }
+    
+    componentWillReceiveProps(newprops) {
+        if(newprops.track.url !== this.state.track.url) {
+            this.setState({track: newprops.track})
+        }
     }
 
     playPause() {
@@ -30,7 +43,7 @@ class Player extends React.Component {
     }
 
     stop() {
-        this.setState({ url: null, playing: false })
+        this.setState({ track: {}, playing: false })
     }
 
     setVolume(e) {
@@ -57,6 +70,11 @@ class Player extends React.Component {
         }
     }
 
+    toggleMenu(e) {
+        e.preventDefault();
+        toggleClassInBody('with--menu')
+    }
+
     render() {
 
         const {
@@ -73,7 +91,7 @@ class Player extends React.Component {
                             className='react-player'
                             width={100}
                             height={100}
-                            url={this.state.url}
+                            url={this.state.track.url}
                             playing={this.state.playing}
                             volume={this.state.volume}
                             soundcloudConfig={soundcloudConfig}
@@ -90,12 +108,21 @@ class Player extends React.Component {
                         </button>
                     </div>
                     <div className="player-info">
-                        <em>Atelier des Chansons</em><br />
-                        <strong>Diamonds</strong>
+                        <em>{this.state.track.author}</em><br />
+                        <strong>{this.state.track.name}</strong>
                     </div>
-                </div>
+                    <div id="menu"  className="pointer" onClick={this.toggleMenu}>
+                        <i className="fa fa-3x fa-bars" aria-hidden="true" />
+                    </div>
+                    
+        </div>
     }
 }
+
+Player.propTypes = {
+    track: React.PropTypes.object
+};
+
 
 export default Player
 

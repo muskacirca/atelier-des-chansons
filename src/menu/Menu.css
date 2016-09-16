@@ -1,0 +1,30 @@
+/*
+  CART
+*/
+
+.menu-container {
+
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-bottom: 142px !important;
+    bottom: 0;
+    padding: 15px;
+    background-color: #ECEFF1;
+    width: 250px;
+    z-index: 10;
+    -webkit-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    transform: translateX(300px);
+
+}
+
+.menu-container .row {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.with--menu .menu-container {
+    transition-duration: 0.3s;
+    transform: translateX(0px);
+}
