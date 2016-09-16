@@ -66,7 +66,7 @@ class Player extends React.Component {
             fileConfig
         } = this.state;
 
-        return  <div className="player-container">
+        return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-img">
                         <ReactPlayer
                             ref='player'

@@ -5,18 +5,21 @@ import './App.css';
 
 var Sunflower = require('./style/sunflowers.jpg');
 var Jungle = require('./style/jungle.jpg');
+var Music = require('./style/music.jpg');
+var Concert = require('./style/concert.jpg');
 
-const wallpapers = [ Jungle, Sunflower]
+const wallpapers = [ {img: Jungle, playerColor: "#00695C"}, {img: Music, playeCcolor: "#039BE5"},
+    {img: Concert, playColor: "#00695C"}, {img: Sunflower, playerColor: "#E65100"}];
 class App extends Component {
 
 
-    
+
     constructor(props) {
         super(props);
-        
+
         this.state = {
             index: 0,
-            wallpaper: Sunflower
+            wallpaper: {img: Sunflower, playerColor: "#E65100"}
         }
     }
 
@@ -25,23 +28,21 @@ class App extends Component {
     }
 
     startPolling() {
-        console.log("start polmling");
         var self = this;
         setTimeout(function() {
             self.changeWallpaper(); // do it once and then start it up ...
             self._timer = setInterval(self.changeWallpaper.bind(self), 15000);
         }, 15000);
     }
-    
+
     changeWallpaper() {
-        console.log("changingg wallpaper");
         let length = wallpapers.length;
         let index = this.state.index;
         if(index > length - 1) {
             console.log("first");
             index = 0;
         }
-        let wallpaper = wallpapers[index]
+        let wallpaper = wallpapers[index];
         this.setState({
             wallpaper: wallpaper,
             index: index + 1
@@ -54,7 +55,7 @@ class App extends Component {
         // Not working
         // let url = './style//sunflowers.jpg'
         let background = {
-            backgroundImage: "url(" + this.state.wallpaper + ")"
+            backgroundImage: "url(" + this.state.wallpaper.img + ")"
         };
 
         return (
@@ -64,7 +65,7 @@ class App extends Component {
                     <h2>L'Atelier des Chansons</h2>
 
                 </div>
-                <Player url="https://soundcloud.com/muskacirca/diamonds"/>
+                <Player url="https://soundcloud.com/muskacirca/diamonds" color={this.state.wallpaper.playerColor}/>
             </div>
         );
     }
