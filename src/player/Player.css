@@ -39,6 +39,8 @@
 
 .player-command-container {
     position: absolute;
+    left: 0;
+    margin-left: 1.3em;
 }
 
 .player-command-container button{

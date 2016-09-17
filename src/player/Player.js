@@ -114,8 +114,8 @@ class Player extends React.Component {
         var self = this;
         setTimeout(function() {
             self.updateTime(); // do it once and then start it up ...
-            self._timer = setInterval(self.updateTime.bind(self), 950);
-        }, 950);
+            self._timer = setInterval(self.updateTime.bind(self), 995);
+        }, 995);
     }
 
     updateTime() {
