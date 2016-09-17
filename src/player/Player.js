@@ -45,6 +45,16 @@ class Player extends React.Component {
     }
 
     playPause() {
+        if (this._timer) {
+            
+            if(this.state.playing) {
+                clearInterval(this._timer);
+                this._timer = null;
+            }
+        } else {
+            this.onStart()
+        }
+        
         this.setState({ playing: !this.state.playing })
     }
 

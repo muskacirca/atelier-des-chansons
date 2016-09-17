@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69a8f924-6c1d-4bd2-9e11-99e2046f4f63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/player/Player.css" afterPath="$PROJECT_DIR$/src/player/Player.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/player/Player.js" afterPath="$PROJECT_DIR$/src/player/Player.js" />
     </list>
     <ignored path="atelier-des-chansons.iws" />
@@ -108,8 +107,8 @@
       <file leaf-file-name="Player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/player/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="149" column="76" selection-start-line="149" selection-start-column="76" selection-end-line="149" selection-end-column="76" />
+            <state relative-caret-position="199">
+              <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -769,7 +768,7 @@
       <updated>1473977963016</updated>
       <workItem from="1473977966655" duration="9007000" />
       <workItem from="1474020151462" duration="10203000" />
-      <workItem from="1474063623876" duration="8314000" />
+      <workItem from="1474063623876" duration="8841000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1473992009030</created>
@@ -841,11 +840,18 @@
       <option name="project" value="LOCAL" />
       <updated>1474073936164</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix button">
+      <created>1474074444931</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1474074444931</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27524000" />
+    <option name="totallyTimeSpent" value="28051000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -899,7 +905,8 @@
     <MESSAGE value="remmove unused import" />
     <MESSAGE value="implemented continuous play" />
     <MESSAGE value="play button is on the image" />
-    <option name="LAST_COMMIT_MESSAGE" value="play button is on the image" />
+    <MESSAGE value="fix button" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1162,8 +1169,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/player/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="149" column="76" selection-start-line="149" selection-start-column="76" selection-end-line="149" selection-end-column="76" />
+        <state relative-caret-position="199">
+          <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
