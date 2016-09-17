@@ -32,9 +32,9 @@
 .playlist-container {
     text-align: left;
     line-height: 0.1em;
+    padding-top: 1em;
 
 }
-
 
 .playlist-item {
     margin-bottom: 1.5em;

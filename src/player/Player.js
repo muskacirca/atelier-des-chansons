@@ -18,7 +18,6 @@ class Player extends React.Component {
             played: 0,
             loaded: 0,
             duration: 0,
-            
             isMenuOpen: false
         };
 
@@ -31,10 +30,17 @@ class Player extends React.Component {
         this.onSeekMouseUp.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this)
     }
-    
+
     componentWillReceiveProps(newprops) {
         if(newprops.track.url !== this.state.track.url) {
-            this.setState({track: newprops.track})
+            if (this._timer) {
+                clearInterval(this._timer);
+                this._timer = null;
+            }
+            this.setState({
+                track: newprops.track,
+                played: 0
+            })
         }
     }
 
@@ -78,6 +84,34 @@ class Player extends React.Component {
 
     onTrackEnd() {
         this.props.onTrackEnd();
+        this.setState({played: 0})
+    }
+
+    computeTime(delta) {
+
+        let minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        let seconds = delta % 60;
+        seconds = Math.trunc(seconds);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        return minutes + ":" + seconds
+    }
+
+
+    onStart() {
+        var self = this;
+        setTimeout(function() {
+            self.updateTime(); // do it once and then start it up ...
+            self._timer = setInterval(self.updateTime.bind(self), 950);
+        }, 950);
+    }
+
+    updateTime() {
+        this.setState({
+            played: this.state.played + 1
+        })
     }
 
     render() {
@@ -88,6 +122,9 @@ class Player extends React.Component {
             youtubeConfig,
             fileConfig
         } = this.state;
+
+        let elapsedTime = this.computeTime(this.state.played);
+        let time = this.computeTime(this.state.duration);
 
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-img">
@@ -105,21 +142,24 @@ class Player extends React.Component {
                             fileConfig={fileConfig}
                             onDuration={duration => this.setState({ duration })}
                             onEnded={this.onTrackEnd.bind(this)}
+                            onProgress={this.onProgress.bind(this)}
+                            onStart={this.onStart.bind(this)}
                         />
                     </div>
                     <div className="player-command-container">
                         <button className="btn btn-default btn-circle btn-lg" onClick={this.playPause}>
-                            {this.state.playing ? <i className="fa fa-pause" aria-hidden="true"/> : <i className="fa fa-play" aria-hidden="true" />}
+                            {this.state.playing ? <i className="fa fa-2x fa-pause" aria-hidden="true"/> : <i className="fa fa-2x fa-play" aria-hidden="true" />}
                         </button>
                     </div>
                     <div className="player-info">
                         <em>{this.state.track.author}</em><br />
-                        <strong>{this.state.track.name}</strong>
+                        <strong>{this.state.track.name}</strong><br />
+                        <div>{elapsedTime + " / " + time}</div>
                     </div>
                     <div id="menu"  className="pointer" onClick={this.toggleMenu}>
                         <i className="fa fa-3x fa-bars" aria-hidden="true" />
                     </div>
-                    
+
         </div>
     }
 }

@@ -38,11 +38,12 @@
 }
 
 .player-command-container {
+    position: absolute;
 }
 
 .player-command-container button{
-   margin-top: 1.2em;
-   margin-left: 1.3em;
+    margin-top: 0.8em;
+    margin-left: 0.8em;
 }
 
 
@@ -78,6 +79,9 @@
     outline: none !important;
 }
 
+.player-command-container .btn-default {
+    opacity: 0.5 !important;
+}
 
 #menu {
     align-self: center;
