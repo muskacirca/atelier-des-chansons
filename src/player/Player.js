@@ -147,7 +147,7 @@ class Player extends React.Component {
                         />
                     </div>
                     <div className="player-command-container">
-                        <button className="btn btn-default btn-circle btn-lg" onClick={this.playPause}>
+                        <button className="btn btn-default btn-circle btn-xl" onClick={this.playPause}>
                             {this.state.playing ? <i className="fa fa-2x fa-pause" aria-hidden="true"/> : <i className="fa fa-2x fa-play" aria-hidden="true" />}
                         </button>
                     </div>
