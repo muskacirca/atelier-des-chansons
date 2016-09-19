@@ -91,3 +91,14 @@
     text-align: right;
     margin-right: 2.5em;
 }
+
+.inline-content strong{
+    font-size: x-large;
+}
+
+.menu-right {
+    align-self: center;
+    flex: 14;
+    text-align: right;
+    margin-right: 2.5em;
+}
