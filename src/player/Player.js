@@ -128,6 +128,16 @@ class Player extends React.Component {
                 />
     }
 
+    computePlayerConfig() {
+
+        let screenWidth = screen.width;
+
+        console.log("width", JSON.stringify(screenWidth));
+        let length = screenWidth > 750 ? 100 : 50;
+        
+        return {width: length, height: length}
+    }
+
     render() {
 
         const {
@@ -143,14 +153,16 @@ class Player extends React.Component {
         
         console.log("modal is open", JSON.stringify(this.state.modalOpen));
         let modal = this.renderModal();
+
+        let player = this.computePlayerConfig();
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-img">
                         <ReactPlayer
                             ref='player'
                             className='react-player'
-                            width={100}
-                            height={100}
+                            width={player.width}
+                            height={player.height}
                             url={this.state.track.url}
                             playing={this.state.playing}
                             volume={this.state.volume}
@@ -174,7 +186,7 @@ class Player extends React.Component {
                         <strong>{this.state.track.name}</strong><br />
                         <div>{elapsedTime + " / " + time}</div>
                     </div>
-                    <div className="pointer menu-right" onClick={this.subscribe}>
+                    <div className="pointer mobile-hide menu-right" onClick={this.subscribe}>
                         <div className="inline-content">
                             <i className="fa fa-2x fa-sign-in" aria-hidden="true" />
                             <strong>{' '}Subscribe</strong>

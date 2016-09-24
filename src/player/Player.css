@@ -102,3 +102,17 @@
     text-align: right;
     margin-right: 2.5em;
 }
+
+/*
+  RESPONSIVE
+*/
+
+@media only screen and (max-width: 750px) {
+    .player-info strong {
+        font-size: large !important;
+    }
+
+    .player-info em {
+        font-size: small !important;
+    }
+}

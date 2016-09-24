@@ -64,7 +64,7 @@ class ModalWrapper extends React.Component {
                             </Modal.Body>
                             <Modal.Footer>
                                 <button onClick={this.onClose.bind(this)} className="btn btn-default">Close</button>
-                                <button onClick={this.onSubmit.bind(this)} className="btn btn-primary">Save changes</button>
+                                <button onClick={this.onSubmit.bind(this)} className="btn btn-primary">Subscribe</button>
                             </Modal.Footer>
                         </Modal.Dialog>
                     </div>
