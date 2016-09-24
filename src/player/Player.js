@@ -138,6 +138,15 @@ class Player extends React.Component {
         return {width: length, height: length}
     }
 
+    computePlayerCommand() {
+
+        let screenWidth = window.innerWidth;
+
+        let length = screenWidth > 750 ? "fa-2x" : "";
+
+        return {width: length, height: length}
+    }
+
     render() {
 
         const {
@@ -155,6 +164,7 @@ class Player extends React.Component {
         let modal = this.renderModal();
 
         let player = this.computePlayerConfig();
+        let commandClassName = this.computePlayerCommand();
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-img">
