@@ -115,4 +115,9 @@
     .player-info em {
         font-size: small !important;
     }
+
+    .player-command-container button {
+        margin-top: 0.2em;
+        margin-left: 0.2em;
+     }
 }
