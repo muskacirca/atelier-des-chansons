@@ -108,6 +108,12 @@
 */
 
 @media only screen and (max-width: 750px) {
+
+    .player-info {
+        margin-top: 0.4em;
+        margin-left: 2em;
+    }
+
     .player-info strong {
         font-size: large !important;
     }
