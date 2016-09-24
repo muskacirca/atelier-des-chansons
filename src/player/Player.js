@@ -19,7 +19,8 @@ class Player extends React.Component {
             played: 0,
             loaded: 0,
             duration: 0,
-            isMenuOpen: false
+            isMenuOpen: false,
+            modalOpen: false
         };
 
         this.playPause = this.playPause.bind(this);
@@ -30,6 +31,8 @@ class Player extends React.Component {
         this.onSeekMouseUp.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.subscribe = this.subscribe.bind(this);
+        this.onModalSubmit = this.onModalSubmit.bind(this);
+        this.onModalClose = this.onModalClose.bind(this);
     }
 
     componentWillReceiveProps(newprops) {
@@ -103,16 +106,26 @@ class Player extends React.Component {
     }
 
     subscribe() {
-        console.log("subscribe")
-        this.setState({modalOpen: true})
+        this.setState({modalOpen: !this.state.modalOpen})
 
     }
 
+    onModalClose() {
+        console.log("closing");
+        this.setState({modalOpen: false})
+    }
+
+    onModalSubmit(email) {
+        console.log("email", JSON.stringify(email));
+        this.setState({modalOpen: false})
+    }
+
     renderModal() {
-        if(this.state.modalOpen) {
-            return <Modal />
-        }
-        return <div />
+        return  <Modal 
+                    isOpen={this.state.modalOpen}
+                    onSubmit={this.onModalSubmit}
+                    onClose={this.onModalClose}
+                />
     }
 
     render() {
@@ -128,7 +141,8 @@ class Player extends React.Component {
         let elapsedTime = this.computeTime(elapsedSeconds);
         let time = this.computeTime(this.state.duration);
         
-        let modal = this.renderModal()
+        console.log("modal is open", JSON.stringify(this.state.modalOpen));
+        let modal = this.renderModal();
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-img">
@@ -160,7 +174,7 @@ class Player extends React.Component {
                         <strong>{this.state.track.name}</strong><br />
                         <div>{elapsedTime + " / " + time}</div>
                     </div>
-                    <div className="pointer menu-right" onClick={this.subscribe} data-toggle="modal" data-target="#myModal">
+                    <div className="pointer menu-right" onClick={this.subscribe}>
                         <div className="inline-content">
                             <i className="fa fa-2x fa-sign-in" aria-hidden="true" />
                             <strong>{' '}Subscribe</strong>
