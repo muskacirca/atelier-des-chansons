@@ -91,3 +91,35 @@
     text-align: right;
     margin-right: 2.5em;
 }
+
+
+/*
+
+    RESPONSIVE
+*/
+
+@media only screen and (max-width: 750px) {
+
+
+    #menu {
+        align-self: center;
+        flex: 1;
+        text-align: right;
+        margin-right: 0;
+    }
+
+    .player-info strong {
+        font-size: larger !important;
+    }
+
+    .player-info em {
+        font-size: large !important;
+    }
+
+    .player-info {
+        margin-top: 0.9em;
+        margin-left: 1em;
+    }
+}
+
+
