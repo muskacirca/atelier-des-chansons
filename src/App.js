@@ -8,6 +8,10 @@ var Music = require('./style/music.jpg');
 var Concert = require('./style/concert.jpg');
 var Soleil = require('./style/soleil.jpg');
 
+import {
+    removeClassInBodyIfNeeded
+} from './utils/utils'
+
 const wallpapers = [
     {img: Jungle, playerColor: "#607D8B"},
     {img: Music, playeCcolor: "#039BE5"},
@@ -60,6 +64,10 @@ class App extends Component {
         }
     }
 
+    hideMenuIfNeeded() {
+        removeClassInBodyIfNeeded('with--menu')    
+    }
+
     render() {
 
         let background = {
@@ -68,7 +76,7 @@ class App extends Component {
 
         return (
             <div className="App" >
-                <div className="App-header" style={background}>
+                <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
                     <h1>L'Atelier des Chansons</h1>
                 </div>
                 <Player color={this.state.wallpaper.playerColor} />

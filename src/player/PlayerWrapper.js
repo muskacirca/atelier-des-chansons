@@ -2,6 +2,10 @@ import React from 'react'
 import Player from './Player'
 import Playlist from '../menu/Playlist'
 
+import {
+    toggleClassInBody
+} from '../utils/utils'
+
 import tail from 'lodash/tail'
 
 const playlist = [
@@ -62,7 +66,7 @@ class PlayerWrapper extends React.Component {
     }
 
     changeSong(track) {
-        console.log("track : " + JSON.stringify(track));
+        toggleClassInBody('with--menu')
         this.setState({currentTrack: track})
     }
 

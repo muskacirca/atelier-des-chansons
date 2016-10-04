@@ -1,9 +1,19 @@
 import _ from 'lodash'
 
+export function removeClassInBodyIfNeeded(className) {
+
+    let bodyClass = document.body.className;
+    bodyClass = bodyClass.indexOf(className) != -1
+        ? _.replace(bodyClass, className, '')
+        : "";
+
+    document.body.className = bodyClass;
+}
+
 export function toggleClassInBody(className) {
 
-    var bodyClass = document.body.className;
-    var bodyClass = bodyClass.indexOf(className) == -1
+    let bodyClass = document.body.className;
+    bodyClass = bodyClass.indexOf(className) == -1
         ? addSafely(bodyClass, className)
         : replaceSafely(bodyClass, className)
 
@@ -18,7 +28,7 @@ function addSafely(bodyClass, className) {
 
 
 function replaceSafely(bodyClass, className) {
-    var str = (bodyClass === className)
+    let str = (bodyClass === className)
         ? className
         : " " + className
 
