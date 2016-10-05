@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Player from './player/PlayerWrapper'
+import BandInfo from './info/BandInfo'
+
 import './App.css';
 
 var Sunflower = require('./style/sunflowers.jpg');
@@ -28,6 +30,7 @@ class App extends Component {
         super(props);
 
         this.state = {
+            screen: 1,
             index: 0,
             wallpaper: {img: Sunflower, playerColor: "#E65100"}
         }
@@ -68,21 +71,52 @@ class App extends Component {
         removeClassInBodyIfNeeded('with--menu')    
     }
 
+
+    switchScreen() {
+        if (this.state.screen === 1) {
+            this.setState({screen: 2})
+        } else {
+            this.setState({screen: 1})
+        }
+    }
+
     render() {
 
         let background = {
             backgroundImage: "url(" + this.state.wallpaper.img + ")"
         };
 
-        return (
-            <div className="App" >
-                <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
-                    <h1>L'Atelier des Chansons</h1>
+        let className = "App";
+        className = this.state.screen === 1
+            ? className + " screen-1"
+            : className + " screen-2";
+
+        return <div className={className}>
+                    <div className="body-container">
+                        <div className="body-1" >
+
+                            <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
+                                <h1>L'Atelier des Chansons</h1>
+                                
+                                <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
+                            </div>
+        
+
+
+                        </div>
+
+                        <div className="body-2" onDragStart={this.switchScreen.bind(this)}>
+                            <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
+                            <BandInfo />
+                        </div>
+
+                        
+                    </div>
+
+                    <Player color={this.state.wallpaper.playerColor} />
                 </div>
-                <Player color={this.state.wallpaper.playerColor} />
-            </div>
-        );
     }
+
 }
 
 export default App;

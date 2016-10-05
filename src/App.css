@@ -29,3 +29,66 @@
 .pointer {
   cursor: pointer;
 }
+
+
+/*
+
+  MULTIPLE DESKTOP
+
+*/
+
+.body-container,
+.body-1,
+.body-2,
+.body-3 {
+  height: 100%;
+  width: 100%
+}
+
+.body-container {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.body-1 {
+
+  position: absolute;
+  overflow-y: hidden;
+}
+
+.body-2 {
+
+  overflow-y: hidden;
+}
+
+.screen-1 .body-1 {
+  transition-duration: 0.3s;
+  transform: translateX(0px);
+}
+
+.screen-1 .body-2 {
+  transition-duration: 0.3s;
+  transform: translateX(2000px);
+}
+
+.screen-2 .body-2 {
+  transition-duration: 0.3s;
+  transform: translateX(0px);
+}
+
+.screen-2 .body-1 {
+  transition-duration: 0.3s;
+  transform: translateX(-2000px);
+}
+
+.navigation-icon-left {
+  position: absolute;
+  left: 2em;
+  top: 2em;
+}
+
+.navigation-icon-right {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+}
