@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Player from './player/PlayerWrapper'
-import BandInfo from './info/BandInfo'
+// import BandInfo from './info/BandInfo'
 
 import './App.css';
 
