@@ -13,6 +13,6 @@ build
 .DS_Store
 npm-debug.log
 
-
 .idea/
 *.iml
+node_modules/

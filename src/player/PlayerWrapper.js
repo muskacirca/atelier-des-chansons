@@ -53,16 +53,12 @@ class PlayerWrapper extends React.Component {
 
     constructor(props) {
         super(props);
-
-
+        
         this.state = {
             currentTrack: playlist[0],
             playlist: playlist
             
         };
-
-
-
     }
 
     changeSong(track) {
@@ -73,14 +69,13 @@ class PlayerWrapper extends React.Component {
     onTrackEnd() {
         
         let newOrder = tail(this.state.playlist);
-        newOrder.concat(this.state.currentTrack);
+        newOrder.push(this.state.currentTrack);
         this.setState({
             playlist: newOrder,
             currentTrack: newOrder[0]
         })
     }
-
-
+    
     render() {
 
         return  <div>

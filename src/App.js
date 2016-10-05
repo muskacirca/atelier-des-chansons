@@ -45,8 +45,8 @@ class App extends Component {
         var self = this;
         setTimeout(function() {
             self.changeWallpaper(); // do it once and then start it up ...
-            self._timer = setInterval(self.changeWallpaper.bind(self), 25000);
-        }, 25000);
+            self._timer = setInterval(self.changeWallpaper.bind(self), 10000);
+        }, 10000);
     }
 
     changeWallpaper() {

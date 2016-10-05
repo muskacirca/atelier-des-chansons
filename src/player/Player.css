@@ -93,6 +93,17 @@
 }
 
 
+.inline-content strong{
+    font-size: x-large;
+}
+
+.menu-right {
+    align-self: center;
+    flex: 14;
+    text-align: right;
+    margin-right: 2.5em;
+}
+
 /*
 
     RESPONSIVE
@@ -106,17 +117,22 @@
     }
 
     .player-info strong {
-        font-size: larger !important;
+        font-size: large !important;
     }
 
     .player-info em {
-        font-size: large !important;
+        font-size: small !important;
     }
 
     .player-info {
         margin-top: 0.4em;
         flex: 5;
         margin-left: 0.4em;
+    }
+
+    .player-command-container button {
+        margin-top: 0.2em;
+        margin-left: 0.2em;
     }
 }
 
