@@ -24,6 +24,8 @@ class Player extends React.Component {
         };
 
         this.playPause = this.playPause.bind(this);
+        this.previousTrack = this.previousTrack.bind(this);
+        this.nextTrack = this.nextTrack.bind(this);
         this.setVolume.bind(this);
         this.onSeekMouseDown.bind(this);
         this.onSeekChange.bind(this);
@@ -130,7 +132,7 @@ class Player extends React.Component {
 
     computePlayerConfig() {
         let screenWidth = window.innerWidth;
-        let length = screenWidth > 750 ? 100 : 75;
+        let length = screenWidth > 750 ? 55 : 75;
         return {width: length, height: length}
     }
 
@@ -141,6 +143,17 @@ class Player extends React.Component {
         let length = screenWidth > 750 ? "fa-2x" : "";
 
         return {width: length, height: length}
+    }
+
+    previousTrack() {
+        this.props.onBackward()
+    }
+
+
+
+    nextTrack() {
+        this.props.onForward();
+        
     }
 
     render() {
@@ -162,34 +175,38 @@ class Player extends React.Component {
         let commandClassName = this.computePlayerCommand();
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
-                    <div className="player-img">
-                        <ReactPlayer
-                            ref='player'
-                            className='react-player'
-                            width={player.width}
-                            height={player.height}
-                            url={this.state.track.url}
-                            playing={this.state.playing}
-                            volume={this.state.volume}
-                            soundcloudConfig={soundcloudConfig}
-                            vimeoConfig={vimeoConfig}
-                            youtubeConfig={youtubeConfig}
-                            fileConfig={fileConfig}
-                            onDuration={duration => this.setState({ duration })}
-                            onEnded={this.onTrackEnd.bind(this)}
-                            onProgress={this.onProgress.bind(this)}
-                            onBuffer={this.onBuffer.bind(this)}
-                        />
-                    </div>
                     <div className="player-command-container">
-                        <button className="btn btn-default btn-circle btn-xl" onClick={this.playPause}>
-                            {this.state.playing ? <i className="fa fa-2x fa-pause" aria-hidden="true"/> : <i className="fa fa-2x fa-play" aria-hidden="true" />}
-                        </button>
+
+                        <i className="pointer fa fa-step-backward" onClick={this.previousTrack} aria-hidden="true" />
+                        {this.state.playing ? <i className="pointer fa fa-2x fa-pause" onClick={this.playPause} aria-hidden="true"/> 
+                            : <i className="pointer fa fa-2x fa-play" onClick={this.playPause} aria-hidden="true" />}
+                        <i className="pointer fa fa-step-forward" onClick={this.nextTrack} aria-hidden="true" />
                     </div>
                     <div className="player-info">
-                        <em>{this.state.track.author}</em><br />
-                        <strong>{this.state.track.name}</strong><br />
-                        <div>{elapsedTime + " / " + time}</div>
+                        <div className="player-img">
+                            <ReactPlayer
+                                ref='player'
+                                className='react-player'
+                                width={player.width}
+                                height={player.height}
+                                url={this.state.track.url}
+                                playing={this.state.playing}
+                                volume={this.state.volume}
+                                soundcloudConfig={soundcloudConfig}
+                                vimeoConfig={vimeoConfig}
+                                youtubeConfig={youtubeConfig}
+                                fileConfig={fileConfig}
+                                onDuration={duration => this.setState({ duration })}
+                                onEnded={this.onTrackEnd.bind(this)}
+                                onProgress={this.onProgress.bind(this)}
+                                onBuffer={this.onBuffer.bind(this)}
+                            />
+                        </div>
+                        <div className="player-text">
+                            <em>{this.state.track.author}</em><br />
+                            <strong>{this.state.track.name}</strong><br />
+                            <span>{elapsedTime + " / " + time}</span>
+                        </div>
                     </div>
                     <div className="pointer mobile-hide menu-right" onClick={this.subscribe}>
                         <div className="inline-content">
@@ -207,7 +224,10 @@ class Player extends React.Component {
 }
 
 Player.propTypes = {
-    track: React.PropTypes.object
+    track: React.PropTypes.object,
+    onForward: React.PropTypes.func,
+    onBackward: React.PropTypes.func,
+    onTrackEnd: React.PropTypes.func
 };
 
 

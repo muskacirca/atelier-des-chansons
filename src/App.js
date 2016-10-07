@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import { findDOMNode } from 'react-dom'
-import Player from './player/PlayerWrapper'
+import Player from './player/Player'
+import Playlist from './menu/Playlist'
 import BandInfo from './info/BandInfo'
+
+import tail from 'lodash/tail'
 
 import './App.css';
 
@@ -26,6 +29,45 @@ const wallpapers = [
     {img: Soleil, playerColor: "#E65100"}
 ];
 
+const playlist = [
+    {
+        url: "https://soundcloud.com/muskacirca/diamonds",
+        name: "Diamonds",
+        author: "Atelier des Chansons"
+    },
+    {
+        url: "https://soundcloud.com/muskacirca/mr-tambourine-man",
+        name: "Tambourine Man",
+        author: "Atelier des Chansons"
+    },
+    {
+        url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
+        name: "Blowin' in the Wind",
+        author: "Atelier des Chansons"
+    },
+    {
+        url: "https://soundcloud.com/outofpeace/the-fall",
+        name: "The Fall",
+        author: "Out of Peace"
+    },
+    {
+        url: "https://soundcloud.com/outofpeace/the-key-is-somewhere-else",
+        name: "The Key is Somewhere Else",
+        author: "Out of Peace"
+    },
+    {
+        url: "https://soundcloud.com/djmadkat/kay-kessinger-kontakt",
+        name: "Kontakt",
+        author: "KAY KESSIINGER"
+    },
+
+    {
+        url: "https://soundcloud.com/djmadkat/double-m-kenun-kay-kessinger",
+        name: "Double M Kenun",
+        author: "KAY KESSIINGER"
+    }
+];
+
 var images = new Array();
 
 class App extends Component {
@@ -37,8 +79,39 @@ class App extends Component {
             screen: 2,
             index: 0,
             isNavbarFixed: false,
-            wallpaper: {img: Sunflower, playerColor: "#E65100"}
+            wallpaper: {img: Sunflower, playerColor: "#E65100"},
+            currentTrack: playlist[0],
+            playlist: playlist
         }
+    }
+    
+
+    nextSong() {
+        
+        console.log("index : " + JSON.stringify(this.state.index + 1));
+        
+        let index1 = this.state.index === playlist.length - 1
+            ? 0
+            : this.state.index + 1;
+        
+        this.setState({
+            currentTrack: playlist[index1],
+            index: index1
+        })
+    }
+
+    previousSong() {
+
+        console.log("index : " + JSON.stringify(this.state.index - 1));
+        
+        let index2 = this.state.index === 0 
+            ? playlist.length - 1
+            : this.state.index - 1;
+        
+        this.setState({
+            currentTrack: playlist[index2],
+            index: index2
+        })
     }
 
     componentWillUnmount() {
@@ -114,8 +187,6 @@ class App extends Component {
 
     renderBody() {
 
-
-
         if(this.state.screen == 1) {
 
             let background = {
@@ -136,6 +207,11 @@ class App extends Component {
             <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
         </div>
 
+    }
+
+    changeSong(track) {
+        toggleClassInBody('with--menu')
+        this.setState({currentTrack: track})
     }
 
     render() {
@@ -160,7 +236,22 @@ class App extends Component {
                         {body}
                     </ReactCSSTransitionGroup>
 
-                    <Player color={this.state.wallpaper.playerColor} />
+
+                    <div className="player-wrapper">
+                        <Player
+                            color={this.state.wallpaper.playerColor}
+                            track={this.state.currentTrack}
+                            // onTrackEnd={this.nextSong.bind(this)}
+                            onForward={this.nextSong.bind(this)}
+                            onBackward={this.previousSong.bind(this)}
+                        />
+                    </div>
+
+                    <Playlist
+                        playlist={this.state.playlist}
+                        currentTrack={this.state.currentTrack}
+                        handleChangeSong={this.changeSong.bind(this)}
+                    />
                 </div>
     }
 
