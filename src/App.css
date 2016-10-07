@@ -54,6 +54,7 @@
 }
 
 .body-2 {
+  overflow-y: scroll;
 
 }
 
@@ -81,6 +82,8 @@
   position: absolute;
   left: 0.4em;
   top: 0.4em;
+
+  z-index: 2;
 }
 
 .navigation-icon-right {

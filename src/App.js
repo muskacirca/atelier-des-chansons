@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { findDOMNode } from 'react-dom'
 import Player from './player/PlayerWrapper'
 import BandInfo from './info/BandInfo'
 
@@ -41,12 +42,12 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
+        findDOMNode(this.refs.body2).removeEventListener('scroll', this.handleScroll.bind(this), false);
 
     }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll.bind(this));
+        findDOMNode(this.refs.body2).addEventListener('scroll', this.handleScroll.bind(this), false);
         this.preload([Sunflower, Jungle, Music, Concert, Soleil]);
         this.startPolling()
     }
@@ -62,9 +63,9 @@ class App extends Component {
 
     handleScroll(e) {
 
-        let scrollTop = this.getDocHeight();
+        let scrollTop = findDOMNode(this.refs.body2).scrollTop
         console.log("scrollTop : " + JSON.stringify(scrollTop));
-        if(scrollTop > 152) {
+        if(scrollTop > 60) {
              console.log("scrolling height " + scrollTop);
             this.setState({isNavbarFixed: true})
         } else if(scrollTop < 151) {
@@ -120,7 +121,7 @@ class App extends Component {
             let background = {
                 backgroundImage: "url(" + this.state.wallpaper.img + ")"
             };
-            
+
             return <div key="body-1" className="body-1" >
                 <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
                     <h1>L'Atelier des Chansons</h1>
@@ -130,7 +131,7 @@ class App extends Component {
             </div>
         }
 
-        return <div key="body2" className="body-2" onDragStart={this.switchScreen.bind(this)}>
+        return <div ref="body2" key="body2" className="body-2" onDragStart={this.switchScreen.bind(this)}>
             <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
             <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
         </div>
@@ -147,7 +148,7 @@ class App extends Component {
 
         let body = this.renderBody();
 
-        return <div className={className}>
+        return <div ref="App" className={className}>
 
 
                     <ReactCSSTransitionGroup

@@ -7,37 +7,6 @@ class BandInfo extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        window.addEventListener('onScroll', this.handleScroll.bind(this));
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('onScroll', this.handleScroll);
-    }
-
-    getDocHeight() {
-        let D = document;
-        return Math.max(
-            D.body.scrollHeight, D.documentElement.scrollHeight,
-            D.body.offsetHeight, D.documentElement.offsetHeight,
-            D.body.clientHeight, D.documentElement.clientHeight
-        );
-    }
-
-    handleScroll(e) {
-
-
-        let scrollTop = this.getDocHeight();
-        console.log("scrollTop : " + JSON.stringify(scrollTop));
-        if(scrollTop > 152) {
-            // console.log("scrollingg height " + scrollTop);
-            this.setState({isNavbarFixed: true})
-        } else if(scrollTop < 151) {
-            this.setState({isNavbarFixed: false})
-        }
-    }
-
-
     render() {
 
         let bandMenuClass = this.props.isMenuFixed
