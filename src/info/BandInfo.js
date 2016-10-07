@@ -2,10 +2,7 @@ import React from 'react'
 
 import './BandInfo.css';
 class BandInfo extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
+    
 
     render() {
 

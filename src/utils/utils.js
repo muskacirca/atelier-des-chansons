@@ -3,7 +3,7 @@ import _ from 'lodash'
 export function removeClassInBodyIfNeeded(className) {
 
     let bodyClass = document.body.className;
-    bodyClass = bodyClass.indexOf(className) != -1
+    bodyClass = bodyClass.indexOf(className) !== -1
         ? _.replace(bodyClass, className, '')
         : "";
 
@@ -13,9 +13,9 @@ export function removeClassInBodyIfNeeded(className) {
 export function toggleClassInBody(className) {
 
     let bodyClass = document.body.className;
-    bodyClass = bodyClass.indexOf(className) == -1
+    bodyClass = bodyClass.indexOf(className) === -1
         ? addSafely(bodyClass, className)
-        : replaceSafely(bodyClass, className)
+        : replaceSafely(bodyClass, className);
 
     document.body.className = bodyClass;
 }
@@ -30,7 +30,7 @@ function addSafely(bodyClass, className) {
 function replaceSafely(bodyClass, className) {
     let str = (bodyClass === className)
         ? className
-        : " " + className
+        : " " + className;
 
     return _.replace(bodyClass, str, '')
 }

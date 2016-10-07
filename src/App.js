@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import { findDOMNode } from 'react-dom'
 import Player from './player/Player'
 import Playlist from './menu/Playlist'
 import BandInfo from './info/BandInfo'
-
-import tail from 'lodash/tail'
 
 import './App.css';
 
@@ -18,7 +15,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 import {
-    removeClassInBodyIfNeeded
+    removeClassInBodyIfNeeded,
+    toggleClassInBody
 } from './utils/utils'
 
 const wallpapers = [
@@ -68,7 +66,7 @@ const playlist = [
     }
 ];
 
-var images = new Array();
+var images = [];
 
 class App extends Component {
 
@@ -87,9 +85,6 @@ class App extends Component {
     
 
     nextSong() {
-        
-        console.log("index : " + JSON.stringify(this.state.index + 1));
-        
         let index1 = this.state.index === playlist.length - 1
             ? 0
             : this.state.index + 1;
@@ -101,9 +96,6 @@ class App extends Component {
     }
 
     previousSong() {
-
-        console.log("index : " + JSON.stringify(this.state.index - 1));
-        
         let index2 = this.state.index === 0 
             ? playlist.length - 1
             : this.state.index - 1;
@@ -115,30 +107,18 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        // findDOMNode(this.refs.body2).removeEventListener('scroll', this.handleScroll.bind(this), false);
         document.removeEventListener('scroll', this.handleScroll.bind(this), false);
-
     }
 
     componentDidMount() {
-        // findDOMNode(this.refs.body2).addEventListener('scroll', this.handleScroll.bind(this), false);
         document.addEventListener('scroll', this.handleScroll.bind(this), false);
         this.preload([Sunflower, Jungle, Music, Concert, Soleil]);
         this.startPolling()
     }
-
-    getDocHeight() {
-        let D = document;
-        return Math.max(
-            D.body.scrollHeight, D.documentElement.scrollHeight,
-            D.body.offsetHeight, D.documentElement.offsetHeight,
-            D.body.clientHeight, D.documentElement.clientHeight
-        );
-    }
-
+    
     handleScroll(e) {
 
-        let scrollTop = document.body.scrollTop //findDOMNode(this.refs.body2).scrollTop
+        let scrollTop = document.body.scrollTop;
         if(scrollTop > 60) {
             this.setState({isNavbarFixed: true})
         } else if(scrollTop < 151) {
@@ -187,25 +167,25 @@ class App extends Component {
 
     renderBody() {
 
-        if(this.state.screen == 1) {
+        if(this.state.screen === 1) {
 
             let background = {
                 backgroundImage: "url(" + this.state.wallpaper.img + ")"
             };
 
-            return <div key="body-1" className="body-1" >
-                <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
-                    <h1>L'Atelier des Chansons</h1>
-
-                    <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
-                </div>
-            </div>
+            return  <div key="body-1" className="body-1" >
+                        <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
+                            <h1>L'Atelier des Chansons</h1>
+        
+                            <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
+                        </div>
+                    </div>
         }
 
-        return <div ref="body2" key="body2" className="body-2" onDragStart={this.switchScreen.bind(this)}>
-            <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
-            <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
-        </div>
+        return  <div ref="body2" key="body2" className="body-2" onDragStart={this.switchScreen.bind(this)}>
+                    <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
+                    <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
+                </div>
 
     }
 
@@ -215,16 +195,10 @@ class App extends Component {
     }
 
     render() {
-
-
-        let className = "App";
-        // className = this.state.screen === 1
-        //     ? className + " screen-1"
-        //     : className + " screen-2";
-
+        
         let body = this.renderBody();
 
-        return <div ref="App" className={className}>
+        return <div ref="App" className="App">
 
 
                     <ReactCSSTransitionGroup

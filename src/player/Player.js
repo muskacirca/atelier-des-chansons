@@ -172,7 +172,6 @@ class Player extends React.Component {
         let modal = this.renderModal();
 
         let player = this.computePlayerConfig();
-        let commandClassName = this.computePlayerCommand();
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-command-container">
