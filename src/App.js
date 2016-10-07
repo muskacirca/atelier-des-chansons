@@ -10,6 +10,9 @@ var Music = require('./style/music.jpg');
 var Concert = require('./style/concert.jpg');
 var Soleil = require('./style/soleil.jpg');
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
+
 import {
     removeClassInBodyIfNeeded
 } from './utils/utils'
@@ -30,15 +33,43 @@ class App extends Component {
         super(props);
 
         this.state = {
-            screen: 1,
+            screen: 2,
             index: 0,
+            isNavbarFixed: false,
             wallpaper: {img: Sunflower, playerColor: "#E65100"}
         }
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('onScroll', this.handleScroll);
+
+    }
+
     componentDidMount() {
+        window.addEventListener('onScroll', this.handleScroll.bind(this));
         this.preload([Sunflower, Jungle, Music, Concert, Soleil]);
         this.startPolling()
+    }
+
+    getDocHeight() {
+        let D = document;
+        return Math.max(
+            D.body.scrollHeight, D.documentElement.scrollHeight,
+            D.body.offsetHeight, D.documentElement.offsetHeight,
+            D.body.clientHeight, D.documentElement.clientHeight
+        );
+    }
+
+    handleScroll(e) {
+        
+        let scrollTop = this.getDocHeight();
+        console.log("scrollTop : " + JSON.stringify(scrollTop));
+        if(scrollTop > 152) {
+             console.log("scrolling height " + scrollTop);
+            this.setState({isNavbarFixed: true})
+        } else if(scrollTop < 151) {
+            this.setState({isNavbarFixed: false})
+        }
     }
 
     startPolling() {
@@ -68,7 +99,7 @@ class App extends Component {
     }
 
     hideMenuIfNeeded() {
-        removeClassInBodyIfNeeded('with--menu')    
+        removeClassInBodyIfNeeded('with--menu')
     }
 
 
@@ -94,23 +125,17 @@ class App extends Component {
         return <div className={className}>
                     <div className="body-container">
                         <div className="body-1" >
-
                             <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
                                 <h1>L'Atelier des Chansons</h1>
-                                
+
                                 <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
                             </div>
-        
-
-
                         </div>
 
                         <div className="body-2" onDragStart={this.switchScreen.bind(this)}>
                             <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
-                            <BandInfo />
+                            <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
                         </div>
-
-                        
                     </div>
 
                     <Player color={this.state.wallpaper.playerColor} />

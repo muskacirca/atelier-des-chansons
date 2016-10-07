@@ -14,7 +14,7 @@ class Player extends React.Component {
 
         this.state = {
             track: this.props.track,
-            playing: true,
+            playing: false,
             volume: 0.8,
             played: 0,
             loaded: 0,
@@ -129,12 +129,8 @@ class Player extends React.Component {
     }
 
     computePlayerConfig() {
-
         let screenWidth = window.innerWidth;
-
-        console.log("width", JSON.stringify(screenWidth));
         let length = screenWidth > 750 ? 100 : 75;
-        
         return {width: length, height: length}
     }
 
@@ -160,7 +156,6 @@ class Player extends React.Component {
         let elapsedTime = this.computeTime(elapsedSeconds);
         let time = this.computeTime(this.state.duration);
         
-        console.log("modal is open", JSON.stringify(this.state.modalOpen));
         let modal = this.renderModal();
 
         let player = this.computePlayerConfig();

@@ -18,6 +18,7 @@
   font-size: large;
 }
 
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -55,7 +56,6 @@
 
 .body-2 {
 
-  overflow-y: hidden;
 }
 
 .screen-1 .body-1 {
@@ -78,6 +78,17 @@
   transform: translateX(-2000px);
 }
 
+.navigation-icon-left {
+  position: absolute;
+  left: 0.4em;
+  top: 0.4em;
+}
+
+.navigation-icon-right {
+  position: absolute;
+  right: 0.4em;
+  top: 0.4em;
+}
 
 
 /*

@@ -78,7 +78,7 @@ class PlayerWrapper extends React.Component {
     
     render() {
 
-        return  <div>
+        return  <div className="player-wrapper">
                     <Player
                         color={this.props.color}
                         track={this.state.currentTrack}

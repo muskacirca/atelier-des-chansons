@@ -7,7 +7,11 @@ body,
 
 .App {
   min-height: 100%;
+  overflow-x: hidden;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
 body {
