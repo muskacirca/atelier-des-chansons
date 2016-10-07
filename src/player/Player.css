@@ -130,6 +130,11 @@
         margin-left: 0.7em;
 
     }
+
+    .player-command-container button{
+        margin-top: 0.2em;
+        margin-left: 0.2em;
+    }
 }
 
 
