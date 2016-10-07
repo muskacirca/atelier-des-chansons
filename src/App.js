@@ -42,12 +42,14 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        findDOMNode(this.refs.body2).removeEventListener('scroll', this.handleScroll.bind(this), false);
+        // findDOMNode(this.refs.body2).removeEventListener('scroll', this.handleScroll.bind(this), false);
+        document.removeEventListener('scroll', this.handleScroll.bind(this), false);
 
     }
 
     componentDidMount() {
-        findDOMNode(this.refs.body2).addEventListener('scroll', this.handleScroll.bind(this), false);
+        // findDOMNode(this.refs.body2).addEventListener('scroll', this.handleScroll.bind(this), false);
+        document.addEventListener('scroll', this.handleScroll.bind(this), false);
         this.preload([Sunflower, Jungle, Music, Concert, Soleil]);
         this.startPolling()
     }
@@ -63,10 +65,8 @@ class App extends Component {
 
     handleScroll(e) {
 
-        let scrollTop = findDOMNode(this.refs.body2).scrollTop
-        console.log("scrollTop : " + JSON.stringify(scrollTop));
+        let scrollTop = document.body.scrollTop //findDOMNode(this.refs.body2).scrollTop
         if(scrollTop > 60) {
-             console.log("scrolling height " + scrollTop);
             this.setState({isNavbarFixed: true})
         } else if(scrollTop < 151) {
             this.setState({isNavbarFixed: false})

@@ -18,6 +18,9 @@
 
 .player-wrapper {
     z-index: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 

@@ -45,7 +45,6 @@
 
 .body-container {
   /*display: flex;*/
-  overflow-x: hidden;
 }
 
 .body-1 {
@@ -54,7 +53,7 @@
 }
 
 .body-2 {
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
 
 }
 
