@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './info/BandInfo.css';
+import './BandInfo.css';
 class BandInfo extends React.Component {
 
     constructor(props) {
