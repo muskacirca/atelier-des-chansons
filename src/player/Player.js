@@ -133,7 +133,7 @@ class Player extends React.Component {
         let screenWidth = window.innerWidth;
 
         console.log("width", JSON.stringify(screenWidth));
-        let length = screenWidth > 750 ? 100 : 75;
+        let length = screenWidth > 750 ? 100 : 100;
         
         return {width: length, height: length}
     }
