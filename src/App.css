@@ -44,13 +44,12 @@
 }
 
 .body-container {
-  display: flex;
+  /*display: flex;*/
   overflow-x: hidden;
 }
 
 .body-1 {
 
-  position: absolute;
   overflow-y: hidden;
 }
 
@@ -88,6 +87,25 @@
   position: absolute;
   right: 0.4em;
   top: 0.4em;
+}
+
+
+.body-enter {
+  opacity: 0.01;
+}
+
+.body-enter.body-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.body-leave {
+  opacity: 1;
+}
+
+.body-leave.body-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
 
 

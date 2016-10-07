@@ -41,12 +41,12 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('onScroll', this.handleScroll);
+        window.removeEventListener('scroll', this.handleScroll);
 
     }
 
     componentDidMount() {
-        window.addEventListener('onScroll', this.handleScroll.bind(this));
+        window.addEventListener('scroll', this.handleScroll.bind(this));
         this.preload([Sunflower, Jungle, Music, Concert, Soleil]);
         this.startPolling()
     }
@@ -61,7 +61,7 @@ class App extends Component {
     }
 
     handleScroll(e) {
-        
+
         let scrollTop = this.getDocHeight();
         console.log("scrollTop : " + JSON.stringify(scrollTop));
         if(scrollTop > 152) {
@@ -111,32 +111,53 @@ class App extends Component {
         }
     }
 
+    renderBody() {
+
+
+
+        if(this.state.screen == 1) {
+
+            let background = {
+                backgroundImage: "url(" + this.state.wallpaper.img + ")"
+            };
+            
+            return <div key="body-1" className="body-1" >
+                <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
+                    <h1>L'Atelier des Chansons</h1>
+
+                    <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
+                </div>
+            </div>
+        }
+
+        return <div key="body2" className="body-2" onDragStart={this.switchScreen.bind(this)}>
+            <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
+            <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
+        </div>
+
+    }
+
     render() {
 
-        let background = {
-            backgroundImage: "url(" + this.state.wallpaper.img + ")"
-        };
 
         let className = "App";
-        className = this.state.screen === 1
-            ? className + " screen-1"
-            : className + " screen-2";
+        // className = this.state.screen === 1
+        //     ? className + " screen-1"
+        //     : className + " screen-2";
+
+        let body = this.renderBody();
 
         return <div className={className}>
-                    <div className="body-container">
-                        <div className="body-1" >
-                            <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
-                                <h1>L'Atelier des Chansons</h1>
 
-                                <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
-                            </div>
-                        </div>
 
-                        <div className="body-2" onDragStart={this.switchScreen.bind(this)}>
-                            <i className="navigation-icon-left fa fa-2x fa-hand-o-left" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
-                            <BandInfo isMenuFixed={this.state.isNavbarFixed}/>
-                        </div>
-                    </div>
+                    <ReactCSSTransitionGroup
+                        className="body-container"
+                        transitionName="body"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}
+                    >
+                        {body}
+                    </ReactCSSTransitionGroup>
 
                     <Player color={this.state.wallpaper.playerColor} />
                 </div>
