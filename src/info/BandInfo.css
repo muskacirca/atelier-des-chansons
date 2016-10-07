@@ -18,3 +18,29 @@
     margin-left: 5em;
     margin-right: 5em;
 }
+
+
+/*
+
+    RESPONSIVE
+*/
+
+@media only screen and (max-width: 750px) {
+
+
+    .band-menu-elt {
+        padding-bottom: 1em;
+
+        font-size: large;
+        font-weight: 100;
+    }
+
+    .band-body {
+        font-size: medium;
+        line-height: 2em;
+        font-weight: 200;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+}
