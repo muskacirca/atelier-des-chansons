@@ -142,7 +142,6 @@ i.pointer.fa.fa-step-forward {
 
 @media only screen and (max-width: 750px) {
 
-
     #menu {
         margin-right: 0;
     }
@@ -162,10 +161,17 @@ i.pointer.fa.fa-step-forward {
 
     }
 
-    .player-command-container button{
+    .player-command-container button {
         margin-top: 0.2em;
         margin-left: 0.2em;
     }
+
+    .player-container {
+
+        padding: 1.5em 1.5em 1.5em 1.5em;
+    }
+
 }
+
 
 
