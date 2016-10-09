@@ -13,6 +13,8 @@ import routes from './routes/routes'
 
 import { createHashHistory } from 'history'
 
+import { createHashHistory } from 'history'
+
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 ReactDOM.render(<Router history={appHistory}
