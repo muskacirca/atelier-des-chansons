@@ -156,6 +156,10 @@ class Player extends React.Component {
         
     }
 
+    showLandscape() {
+        this.context.router.push("/")
+    }
+
     render() {
 
         const {
@@ -213,8 +217,9 @@ class Player extends React.Component {
                             <strong>{' '}Subscribe</strong>
                         </div>
                     </div>
-                    <div id="menu" onClick={this.toggleMenu} className="pointer">
-                        <i  className="fa fa-3x fa-bars" aria-hidden="true" />
+                    <div id="menu">
+                        <i className="pointer fa fa-3x fa-globe" onClick={this.showLandscape()} />
+                        <i className="pointer fa fa-3x fa-bars" onClick={this.toggleMenu} />
                     </div>
                     {modal}
 
@@ -229,5 +234,8 @@ Player.propTypes = {
     onTrackEnd: React.PropTypes.func
 };
 
+Player.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
 
 export default Player
