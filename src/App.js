@@ -199,8 +199,6 @@ class App extends Component {
         let body = this.renderBody();
 
         return <div ref="App" className="App">
-
-
                     <ReactCSSTransitionGroup
                         className="body-container"
                         transitionName="body"
@@ -209,7 +207,6 @@ class App extends Component {
                     >
                         {body}
                     </ReactCSSTransitionGroup>
-
 
                     <div className="player-wrapper">
                         <Player

@@ -158,7 +158,6 @@ i.pointer.fa.fa-step-forward {
         margin-top: 0.4em;
         flex: 5;
         margin-left: 0.7em;
-
     }
 
     .player-command-container button {
@@ -167,8 +166,47 @@ i.pointer.fa.fa-step-forward {
     }
 
     .player-container {
+        padding: 1em !important;
+    }
 
-        padding: 1.5em 1.5em 1.5em 1.5em;
+}
+
+@media only screen and (max-width: 1500px) {
+
+    #menu {
+        margin-right: 0;
+    }
+
+    .player-info strong {
+        font-size: large !important;
+    }
+
+    .player-info em {
+        font-size: small !important;
+    }
+
+    .menu-right {
+        flex: 2;
+    }
+
+    .player-info {
+        margin-top: 0.4em;
+        flex: 2;
+        margin-left: 0.7em;
+
+    }
+
+    .player-command-container {
+        flex: 1;
+    }
+
+    .player-command-container button {
+        margin-top: 0.2em;
+        margin-left: 0.2em;
+    }
+
+    .player-container {
+        padding: 1.5em 1.5em 1.5em 10em;
     }
 
 }
