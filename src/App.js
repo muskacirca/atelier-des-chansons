@@ -6,7 +6,6 @@ import './App.css';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-
 import {
     toggleClassInBody
 } from './utils/utils'
@@ -57,7 +56,6 @@ class App extends Component {
 
         this.state = {
             screen: 2,
-            index: 0,
             isNavbarFixed: false,
             currentTrack: playlist[0],
             playlist: playlist
@@ -68,7 +66,7 @@ class App extends Component {
         let index1 = this.state.index === playlist.length - 1
             ? 0
             : this.state.index + 1;
-        
+
         this.setState({
             currentTrack: playlist[index1],
             index: index1
@@ -76,10 +74,10 @@ class App extends Component {
     }
 
     previousSong() {
-        let index2 = this.state.index === 0 
+        let index2 = this.state.index === 0
             ? playlist.length - 1
             : this.state.index - 1;
-        
+
         this.setState({
             currentTrack: playlist[index2],
             index: index2
@@ -98,22 +96,26 @@ class App extends Component {
                         className="body-container"
                         transitionName="body"
                         transitionEnterTimeout={500}
-                        transitionLeaveTimeout={300}
+                        transitionLeaveTimeout={1000}
                     >
                         {this.props.children}
                     </ReactCSSTransitionGroup>
 
-                    <div className="player-wrapper">
-                        <Player
-                            color="#E65100"
-                            track={this.state.currentTrack}
-                            // onTrackEnd={this.nextSong.bind(this)}
-                            onForward={this.nextSong.bind(this)}
-                            onBackward={this.previousSong.bind(this)}
-                        />
-                    </div>
 
-                    <Playlist
+
+                <div className="player-wrapper">
+                    <Player
+                        color="#E65100"
+                        track={this.state.currentTrack}
+                        onTrackEnd={this.nextSong.bind(this)}
+                        onForward={this.nextSong.bind(this)}
+                        onBackward={this.previousSong.bind(this)}
+                    />
+                </div>
+
+
+
+                <Playlist
                         playlist={this.state.playlist}
                         currentTrack={this.state.currentTrack}
                         handleChangeSong={this.changeSong.bind(this)}
@@ -122,5 +124,9 @@ class App extends Component {
     }
 
 }
+
+
+
+
 
 export default App;

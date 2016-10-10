@@ -26,6 +26,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            index: 0,
             wallpaper: {img: Sunflower, playerColor: "#E65100"}
         }
     }
