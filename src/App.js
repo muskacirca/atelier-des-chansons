@@ -82,13 +82,13 @@ class App extends Component {
             playlist: playlist
         }
     }
-    
+
 
     nextSong() {
         let index1 = this.state.index === playlist.length - 1
             ? 0
             : this.state.index + 1;
-        
+
         this.setState({
             currentTrack: playlist[index1],
             index: index1
@@ -96,10 +96,10 @@ class App extends Component {
     }
 
     previousSong() {
-        let index2 = this.state.index === 0 
+        let index2 = this.state.index === 0
             ? playlist.length - 1
             : this.state.index - 1;
-        
+
         this.setState({
             currentTrack: playlist[index2],
             index: index2
@@ -115,7 +115,7 @@ class App extends Component {
         this.preload([Sunflower, Jungle, Music, Concert, Soleil]);
         this.startPolling()
     }
-    
+
     handleScroll(e) {
 
         let scrollTop = document.body.scrollTop;
@@ -176,7 +176,7 @@ class App extends Component {
             return  <div key="body-1" className="body-1" >
                         <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
                             <h1>L'Atelier des Chansons</h1>
-        
+
                             <i className="navigation-icon-right fa fa-2x fa-hand-o-right" aria-hidden="true" onClick={this.switchScreen.bind(this)}/>
                         </div>
                     </div>
@@ -195,7 +195,7 @@ class App extends Component {
     }
 
     render() {
-        
+
         let body = this.renderBody();
 
         return <div ref="App" className="App">
@@ -218,7 +218,7 @@ class App extends Component {
                         />
                     </div>
 
-                    <Playlist
+                <Playlist
                         playlist={this.state.playlist}
                         currentTrack={this.state.currentTrack}
                         handleChangeSong={this.changeSong.bind(this)}
