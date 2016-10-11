@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import Modal from '../utils/Modal'
+import {
+    Link
+} from 'react-router'
 
 import {
     toggleClassInBody
@@ -213,8 +216,12 @@ class Player extends React.Component {
                             <strong>{' '}Subscribe</strong>
                         </div>
                     </div>
-                    <div id="menu" onClick={this.toggleMenu} className="pointer">
-                        <i  className="fa fa-3x fa-bars" aria-hidden="true" />
+                    <div id="menu">
+                        
+                        <Link to="band">
+                            <i className="pointer fa fa-3x fa-globe" />
+                        </Link>
+                            <i className="pointer fa fa-3x fa-bars" onClick={this.toggleMenu} />
                     </div>
                     {modal}
 
@@ -228,6 +235,5 @@ Player.propTypes = {
     onBackward: React.PropTypes.func,
     onTrackEnd: React.PropTypes.func
 };
-
 
 export default Player

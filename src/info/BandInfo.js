@@ -2,11 +2,36 @@ import React from 'react'
 
 import './BandInfo.css';
 class BandInfo extends React.Component {
-    
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            isNavbarFixed: false
+        }
+    }
+
+
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.handleScroll.bind(this), false);
+    }
+
+    componentDidMount() {
+        document.addEventListener('scroll', this.handleScroll.bind(this), false);
+    }
+
+    handleScroll(e) {
+
+        let scrollTop = document.body.scrollTop;
+        if(scrollTop > 60) {
+            this.setState({isNavbarFixed: true})
+        } else if(scrollTop < 151) {
+            this.setState({isNavbarFixed: false})
+        }
+    }
 
     render() {
 
-        let bandMenuClass = this.props.isMenuFixed
+        let bandMenuClass = this.state.isNavbarFixed
                     ? "band-menu-fixed"
                     : "band-menu";
         return  <div>
