@@ -175,6 +175,8 @@ class Player extends React.Component {
         let modal = this.renderModal();
 
         let player = this.computePlayerConfig();
+
+        let pageUrl = this.props.location === "band" ? "/" : "band";
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-command-container">
@@ -217,11 +219,10 @@ class Player extends React.Component {
                         </div>
                     </div>
                     <div id="menu">
-                        
-                        <Link to="band">
+                        <Link to={pageUrl}>
                             <i className="pointer fa fa-3x fa-globe" />
                         </Link>
-                            <i className="pointer fa fa-3x fa-bars" onClick={this.toggleMenu} />
+                        <i className="pointer fa fa-3x fa-bars" onClick={this.toggleMenu} />
                     </div>
                     {modal}
 

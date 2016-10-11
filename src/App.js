@@ -103,19 +103,17 @@ class App extends Component {
                         })}
                     </ReactCSSTransitionGroup>
 
+                    <div className="player-wrapper">
+                        <Player
+                            color="#E65100"
+                            track={this.state.currentTrack}
+                            onTrackEnd={this.nextSong.bind(this)}
+                            onForward={this.nextSong.bind(this)}
+                            onBackward={this.previousSong.bind(this)}
+                        />
+                    </div>
 
-
-                <div className="player-wrapper">
-                    <Player
-                        color="#E65100"
-                        track={this.state.currentTrack}
-                        onTrackEnd={this.nextSong.bind(this)}
-                        onForward={this.nextSong.bind(this)}
-                        onBackward={this.previousSong.bind(this)}
-                    />
-                </div>
-
-                <Playlist
+                    <Playlist
                         playlist={this.state.playlist}
                         currentTrack={this.state.currentTrack}
                         handleChangeSong={this.changeSong.bind(this)}
