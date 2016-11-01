@@ -58,7 +58,8 @@ class App extends Component {
             screen: 2,
             isNavbarFixed: false,
             currentTrack: playlist[0],
-            playlist: playlist
+            playlist: playlist,
+            index: 0
         }
     }
 
@@ -90,8 +91,11 @@ class App extends Component {
     }
 
     render() {
+        
+        console.log("render: " + JSON.stringify(this.state.currentTrack))
 
         return <div ref="App" className="App">
+
                     <ReactCSSTransitionGroup
                         className="body-container"
                         transitionName="body"

@@ -41,6 +41,7 @@ class Player extends React.Component {
     }
 
     componentWillReceiveProps(newprops) {
+        console.log("newprops", JSON.stringify(newprops));
         if(newprops.track.url !== this.state.track.url) {
             this.setState({
                 track: newprops.track,

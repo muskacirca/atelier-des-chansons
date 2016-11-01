@@ -10,5 +10,7 @@ import App from '../App'
 export default <Route path="/" component={App}>
                     <IndexRoute component={Home} />
                     <Route path="band" component={BandInfo} />
+                    <Route path="bio" component={BandInfo} />
+                    <Route path="shows" component={BandInfo} />
                 </Route>
 
