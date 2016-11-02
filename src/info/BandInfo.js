@@ -44,6 +44,8 @@ class BandInfo extends React.Component {
                 return <Store />;
             case "Shows":
                 return <Shows />
+            default:
+                return <BandBio />
         }
     }
 

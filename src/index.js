@@ -6,15 +6,11 @@ import './style/css/font-awesome.min.css'
 
 import {
     Router,
-    useRouterHistory,
     browserHistory
 } from 'react-router'
 
 import routes from './routes/routes'
 
-import { createHashHistory } from 'history'
-
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 ReactDOM.render(<Router history={browserHistory}
                         routes={routes} />, document.getElementById('root'));

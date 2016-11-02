@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import Modal from '../utils/Modal'
+import FileSaver from 'file-saver'
 import {
     Link
 } from 'react-router'
@@ -41,7 +42,6 @@ class Player extends React.Component {
     }
 
     componentWillReceiveProps(newprops) {
-        console.log("newprops", JSON.stringify(newprops));
         if(newprops.track.url !== this.state.track.url) {
             this.setState({
                 track: newprops.track,
@@ -113,16 +113,28 @@ class Player extends React.Component {
 
     subscribe() {
         this.setState({modalOpen: !this.state.modalOpen})
-
     }
 
     onModalClose() {
-        console.log("closing");
         this.setState({modalOpen: false})
     }
 
     onModalSubmit(email) {
-        console.log("email", JSON.stringify(email));
+
+        var data = new Blob([email], {type: 'text/plain'});
+
+        FileSaver.saveAs(data, "yo.txt");
+        // If we are replacing a previously generated file we need to
+        // manually revoke the object URL to avoid memory leaks.
+        // if (textFile !== null) {
+        //     window.URL.revokeObjectURL(textFile);
+        // }
+        //
+        // textFile = window.URL.createObjectURL(data);
+
+        // return textFile;
+
+
         this.setState({modalOpen: false})
     }
 
@@ -153,11 +165,19 @@ class Player extends React.Component {
         this.props.onBackward()
     }
 
-
-
     nextTrack() {
         this.props.onForward();
-        
+    }
+
+    computePlayerLink() {
+
+        console.log("this.props : " + JSON.stringify(this.props));
+        return {
+            url: this.props.location === "band" ? "/" : "band",
+            icon: this.props.location === "band"
+                ? <i className="fa fa-3x fa-info-circle" aria-hidden="true" />
+                : <i className="fa fa-3x fa-globe" aria-hidden="true" />
+        }
     }
 
     render() {
@@ -174,10 +194,8 @@ class Player extends React.Component {
         let time = this.computeTime(this.state.duration);
         
         let modal = this.renderModal();
-
         let player = this.computePlayerConfig();
-
-        let pageUrl = this.props.location === "band" ? "/" : "band";
+        let playerLink = this.computePlayerLink();
         
         return  <div className="player-container" style={{backgroundColor: this.props.color}}>
                     <div className="player-command-container">
@@ -220,8 +238,8 @@ class Player extends React.Component {
                         </div>
                     </div>
                     <div id="menu">
-                        <Link to={pageUrl}>
-                            <i className="pointer fa fa-3x fa-globe" />
+                        <Link to={playerLink.url}>
+                            {playerLink.icon}
                         </Link>
                         <i className="pointer fa fa-3x fa-bars" onClick={this.toggleMenu} />
                     </div>

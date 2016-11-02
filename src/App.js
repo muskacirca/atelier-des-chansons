@@ -91,9 +91,6 @@ class App extends Component {
     }
 
     render() {
-        
-        console.log("render: " + JSON.stringify(this.state.currentTrack))
-
         return <div ref="App" className="App">
 
                     <ReactCSSTransitionGroup
@@ -114,6 +111,7 @@ class App extends Component {
                             onTrackEnd={this.nextSong.bind(this)}
                             onForward={this.nextSong.bind(this)}
                             onBackward={this.previousSong.bind(this)}
+                            location={this.props.location.pathname}
                         />
                     </div>
 

@@ -1,8 +1,7 @@
 import React from 'react'
 
 import {
-    removeClassInBodyIfNeeded,
-    toggleClassInBody
+    removeClassInBodyIfNeeded
 } from './utils/utils'
 
 var Sunflower = require('./style/sunflowers.jpg');
