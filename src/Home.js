@@ -9,11 +9,12 @@ var Jungle = require('./style/jungle.jpg');
 var Music = require('./style/music.jpg');
 var Concert = require('./style/concert.jpg');
 var Soleil = require('./style/soleil.jpg');
+var latelier = require('./style/latelier.png');
 
 const wallpapers = [
     {img: Jungle, playerColor: "#607D8B"},
-    {img: Music, playeCcolor: "#039BE5"},
-    {img: Concert, playColor: "#00695C"},
+    {img: Music, playerColor: "#039BE5"},
+    {img: Concert, playerColor: "#00695C"},
     {img: Sunflower, playerColor: "#E65100"},
     {img: Soleil, playerColor: "#E65100"}
 ];
@@ -75,10 +76,11 @@ class Home extends React.Component {
         };
 
         return  <div key="body-1" className="body-1" >
-            <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
-                <h1>L'Atelier des Chansons</h1>
-            </div>
-        </div>
+                    <div className="App-header" style={background} onClick={this.hideMenuIfNeeded.bind(this)}>
+                        <h1>L'Atelier des Chansons</h1>
+                        <img height="50%" src={latelier} alt="L'Atelier" />
+                    </div>
+                </div>
 
     }
 }
