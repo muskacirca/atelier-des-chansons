@@ -20,6 +20,8 @@ body {
 
   overflow-y: auto;
   overflow-x: hidden;
+
+  background-color: #e6e4dd !important;
 }
 
 /*

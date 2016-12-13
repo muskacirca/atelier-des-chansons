@@ -9,7 +9,6 @@ var Jungle = require('./style/jungle.jpg');
 var Music = require('./style/music.jpg');
 var Concert = require('./style/concert.jpg');
 var Soleil = require('./style/soleil.jpg');
-var latelier = require('./style/latelier.png');
 
 const wallpapers = [
     {img: Jungle, playerColor: "#607D8B"},
