@@ -1,0 +1,30 @@
+{
+  "name": "atelier-des-chansons",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "classnames": "^2.2.5",
+    "file-saver": "^1.3.3",
+    "lodash": "^4.15.0",
+    "react-bootstrap": "^0.30.5",
+    "react-motion": "^0.4.5",
+    "react-router": "^2.8.1",
+    "react-scripts": "0.4.1"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-player": "^0.9.0"
+  },
+  "proxy": "http://localhost:3001/",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
+  }
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './style/css/bootstrap.min.css'
 import './style/css/font-awesome.min.css'
+import Intro from './Intro'
 
 import {
     Router,
@@ -12,5 +13,7 @@ import {
 import routes from './routes/routes'
 
 
-ReactDOM.render(<Router history={browserHistory}
-                        routes={routes} />, document.getElementById('root'));
+// <Router history={browserHistory}
+// routes={routes} />, document.getElementById('root')
+
+ReactDOM.render(<Intro />, document.getElementById('root'));
