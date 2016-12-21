@@ -1,7 +1,7 @@
-const express = require('express');
+var express = require('express');
 
-import bodyParser from 'body-parser';
-const path = require('path');
+import bodyParser from 'body-parser'
+import  path from 'path'
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));

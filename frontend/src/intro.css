@@ -1,0 +1,21 @@
+.shows-list-group {
+    list-style-type: none;
+    line-height: 1.5em;
+}
+
+.playlist-item-active {
+
+    color: #E65100;
+    font-weight: bold;
+    text-align: right;
+
+}
+
+.page-info-1 h1 {
+    padding-bottom: 0.5em;
+
+}
+
+.page-info-2 h1 {
+
+}
