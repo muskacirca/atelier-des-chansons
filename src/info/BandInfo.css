@@ -1,0 +1,67 @@
+.band-menu {
+    display: flex;
+    justify-content: space-around;
+
+    border-bottom: 1px black solid;
+}
+
+.band-menu-fixed {
+    display: flex;
+    justify-content: space-around;
+
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px black solid;
+
+}
+
+
+.band-menu-fixed .band-menu-elt {
+    padding: 0.5em;
+
+    font-size: x-large;
+    font-weight: 100;
+}
+
+.band-menu-elt {
+    padding: 3em;
+    cursor: pointer;
+    font-size: x-large;
+    font-weight: 100;
+}
+
+.band-body {
+    font-size: medium;
+    line-height: 2em;
+    font-weight: 200;
+    margin-left: 10em;
+    margin-right: 10em;
+    margin-bottom: 107px;
+}
+
+
+/*
+
+    RESPONSIVE
+*/
+
+@media only screen and (max-width: 750px) {
+
+
+    .band-menu-elt {
+        padding-bottom: 1em;
+
+        font-size: large;
+        font-weight: 100;
+    }
+
+    .band-body {
+        font-size: medium;
+        line-height: 2em;
+        font-weight: 200;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+}

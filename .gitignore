@@ -6,10 +6,11 @@ node_modules
 # testing
 coverage
 
-
 # misc
 .DS_Store
+.env
 npm-debug.log
+
 
 .idea/
 *.iml
