@@ -202,4 +202,15 @@ i.pointer {
 
     padding: 1em 4em 0em 4em;
   }
+
+
+  .sub-menu-container div {
+
+    margin-top: 0em;
+  }
+
+  .small-player-container {
+    margin-bottom: 5em;
+    margin-top: 1em;
+  }
 }

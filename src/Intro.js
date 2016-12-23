@@ -146,9 +146,7 @@ class Intro extends React.Component {
                     <div className="page-info-1">
                         <h1>Shows</h1>
                         <div className="shows-list-group">
-                            <p>Le Café de la Plagge, Paris France - 07/01/2017</p>
-                            <p>Le Plan, Ris Orangis France - 10/02/2017</p>
-                            <p>Le Bar, Tockyo Japan - 30/09/2017</p>
+                            <p>Café de la Plage, Paris France - 07/01/2017</p>
                         </div>
     
                     </div>
