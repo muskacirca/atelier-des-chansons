@@ -39,6 +39,14 @@
 
 }
 
+.icon-content a {
+    color: black !important;
+}
+
+.icon-content a:hover {
+    color: #7c7732 !important;
+}
+
 .info-container {
     line-height: 0.1em;
     padding-top: 1em;
@@ -50,4 +58,10 @@
 .info-item {
     margin-bottom: 1.5em;
     text-align: right;
+}
+
+
+.pointer:hover {
+
+    color: #7c7732 !important;
 }

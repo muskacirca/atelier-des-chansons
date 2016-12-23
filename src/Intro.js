@@ -176,14 +176,20 @@ class Intro extends React.Component {
                         <div className="info-container">
                             <div>Follow us on :</div>
                             <div className="icon-content">
-                                <i className="fa fa-2x fa-facebook-official" aria-hidden="true"/>
-                                <i className="fa fa-2x fa-soundcloud" aria-hidden="true" />
-                                <i className="fa fa-2x fa-bandcamp" aria-hidden="true" />
+                                <a href="https://www.facebook.com/atelierdeschansons">
+                                    <i className="fa fa-2x fa-facebook-official" aria-hidden="true"/>
+                                </a>
+                                <a href="https://soundcloud.com/user-29395467">
+                                    <i className="fa fa-2x fa-soundcloud" aria-hidden="true" />
+                                </a>
+                                <a href="https://atelierdeschansons.bandcamp.com/">
+                                    <i className="fa fa-2x fa-bandcamp" aria-hidden="true" />
+                                </a>
                             </div>
-                            <div className="pointer subscribe-button" onClick={this.subscribe.bind(this)}>
-                                <div className="inline-content">
+                            <div className=" subscribe-button">
+                                <div className="pointer inline-content"  onClick={this.subscribe.bind(this)}>
                                     <i className="fa fa-2x fa-sign-in" aria-hidden="true" />
-                                    <strong>{' '}Subscribe</strong>
+                                    <strong >{' '}Subscribe</strong>
                                 </div>
                             </div>
                         </div>
