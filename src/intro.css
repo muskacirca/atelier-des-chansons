@@ -19,3 +19,35 @@
 .page-info-2 h1 {
 
 }
+
+.follow-banner div {
+    text-align: center;
+    font-weight: 100;
+    font-size: x-large;
+}
+
+.follow-banner {
+
+    padding-bottom: 2em;
+}
+
+.icon-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2em;
+    margin-top: 2em;
+
+}
+
+.info-container {
+    line-height: 0.1em;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.info-item {
+    margin-bottom: 1.5em;
+    text-align: right;
+}

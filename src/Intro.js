@@ -3,6 +3,9 @@ import React from 'react'
 import Player from './player/Player'
 import SmallPlayer from './player/SmallPlayer'
 import Playlist from './menu/Playlist'
+import Modal from './utils/Modal'
+
+import FileSaver from 'file-saver'
 
 var latelier = require('./style/latelier.png');
 
@@ -51,7 +54,7 @@ const playlist = [
 
 import './intro.css'
 class Intro extends React.Component {
-    
+
     constructor(props) {
         super(props);
 
@@ -60,13 +63,14 @@ class Intro extends React.Component {
             isNavbarFixed: false,
             currentTrack: playlist[0],
             playlist: playlist,
+            modalOpen: false,
             index: 0
         }
     }
-    
+
     handleClick() {
-        
-        
+
+
     }
 
     nextSong() {
@@ -111,11 +115,37 @@ class Intro extends React.Component {
 
         })
     }
-    
+
+    renderModal() {
+        return  <Modal
+            isOpen={this.state.modalOpen}
+            onSubmit={this.onModalSubmit.bind(this)}
+            onClose={this.onModalClose.bind(this)}
+        />
+    }
+
+    subscribe() {
+        this.setState({modalOpen: !this.state.modalOpen})
+    }
+
+    onModalClose() {
+        this.setState({modalOpen: false})
+    }
+
+    onModalSubmit(email) {
+
+        var data = new Blob([email], {type: 'text/plain'});
+
+        FileSaver.saveAs(data, "yo.txt");
+
+        this.setState({modalOpen: false})
+    }
+
     render() {
-        
+
         let songs = this.renderSongList(playlist);
-        
+        let modal = this.renderModal();
+
         return  <div className="App-container">
 
                     <div className="page-info-1">
@@ -137,25 +167,38 @@ class Intro extends React.Component {
                         />
                     </div>
                     <div className="page-info-2">
-                        <div className="playlist-container">
+                        <div className="info-container">
                             <h1>L'Atelier EP 2016</h1>
                             {songs}
                         </div>
                     </div>
-                   
-                    <div className="page-info-1">
-                        <h1>Shows</h1>
-                        <div className="shows-list-group">
-                            <p>Café de la Plage, Paris France - 07/01/2017</p>
+                    <div className="follow-banner">
+                        <div className="info-container">
+                            <div>Follow us on :</div>
+                            <div className="icon-content">
+                                <i className="fa fa-2x fa-facebook-official" aria-hidden="true"/>
+                                <i className="fa fa-2x fa-soundcloud" aria-hidden="true" />
+                                <i className="fa fa-2x fa-bandcamp" aria-hidden="true" />
+                            </div>
+                            <div className="pointer subscribe-button" onClick={this.subscribe.bind(this)}>
+                                <div className="inline-content">
+                                    <i className="fa fa-2x fa-sign-in" aria-hidden="true" />
+                                    <strong>{' '}Subscribe</strong>
+                                </div>
+                            </div>
                         </div>
-    
+
                     </div>
-            
-                    <Playlist
-                        playlist={this.state.playlist}
-                        currentTrack={this.state.currentTrack}
-                        handleChangeSong={this.changeSong.bind(this)}
-                    />
+                    <div className="page-info-2">
+                        <div className="info-container">
+                            <h1>Next Shows</h1>
+                            <div className="info-item">
+                                <p>Café de la Plage, Paris France - 07/01/2017</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {modal}
                 </div>
     }
 }
