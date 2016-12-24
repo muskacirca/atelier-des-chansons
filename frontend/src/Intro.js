@@ -1,17 +1,12 @@
 import React from 'react'
 
-import Player from './player/Player'
 import SmallPlayer from './player/SmallPlayer'
-import Playlist from './menu/Playlist'
 import Modal from './utils/Modal'
+import axios from 'axios'
 
 import FileSaver from 'file-saver'
 
 var latelier = require('./style/latelier.png');
-
-import {
-    toggleClassInBody
-} from './utils/utils'
 
 const playlist = [
     {
@@ -68,11 +63,6 @@ class Intro extends React.Component {
         }
     }
 
-    handleClick() {
-
-
-    }
-
     nextSong() {
         let index1 = this.state.index === playlist.length - 1
             ? 0
@@ -111,8 +101,6 @@ class Intro extends React.Component {
                         <h5 className="">{track.name}</h5>
                         <em className="">{track.author}</em>
                     </div>
-
-
         })
     }
 
@@ -132,13 +120,34 @@ class Intro extends React.Component {
         this.setState({modalOpen: false})
     }
 
+    saveContact(name, email) {
+
+        return this.handleAuth(axios({
+            url: '/rs/contact',
+            method: 'POST',
+            crossOrigin: true,
+            type: 'json',
+            data: {
+                name: name, email: email
+            }
+        }));
+    }
+
+    handleAuth(loginPromise) {
+
+        // eslint-disable-next-line
+        return loginPromise
+            .then((response) => {
+               console.log("save contact response: " + JSON.stringify(response))
+            })
+            .catch(response => {
+                console.log("error respoonse: " + JSON.stringify(response))
+            })
+    }
+
     onModalSubmit(email) {
-
-        var data = new Blob([email], {type: 'text/plain'});
-
-        FileSaver.saveAs(data, "yo.txt");
-
-        this.setState({modalOpen: false})
+       this.saveContact("John Doe", email);
+       this.setState({modalOpen: false})
     }
 
     render() {

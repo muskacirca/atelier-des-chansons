@@ -3,8 +3,11 @@ const express = require('express');
 const path = require('path');
 import bodyParser from 'body-parser';
 
+import ContactService from './data/ContactService'
+import SongService from './data/SongService'
+
 const app = express();
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -27,6 +30,16 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
     });
 }
+
+app.post('/rs/contact', function(req, res) {
+    let contact = req.body
+    ContactService.insertContact(contact.name, contact.email);
+});
+
+app.get('/songs', function(req, res) {
+    SongService.findAll();
+    res.send()
+});
 
 
 app.listen(app.get('port'), () => {
