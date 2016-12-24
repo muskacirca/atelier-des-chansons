@@ -59,41 +59,41 @@ User.hasOne(PlayLists);
 connection.sync({force: false})
     .then(async () => {
 
-        Songs.create({
-            url: "https://soundcloud.com/muskacirca/diamonds",
-                name: "Diamonds",
-            author: "Atelier des Chansons"
-        });
-        Songs.create({
-            url: "https://soundcloud.com/muskacirca/mr-tambourine-man",
-                name: "Tambourine Man",
-            author: "Atelier des Chansons"
-        });
-        Songs.create({
-            url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
-                name: "Blowin' in the Wind",
-            author: "Atelier des Chansons"
-        });
-        Songs.create({
-            url: "https://soundcloud.com/outofpeace/the-fall",
-                name: "The Fall",
-            author: "Out of Peace"
-        });
-        Songs.create({
-            url: "https://soundcloud.com/outofpeace/the-key-is-somewhere-else",
-                name: "The Key is Somewhere Else",
-            author: "Out of Peace"
-        });
-        Songs.create({
-            url: "https://soundcloud.com/djmadkat/kay-kessinger-kontakt",
-                name: "Kontakt",
-            author: "KAY KESSIINGER"
-        });
-        Songs.create({
-            url: "https://soundcloud.com/djmadkat/double-m-kenun-kay-kessinger",
-                name: "Double M Kenun",
-            author: "KAY KESSIINGER"
-        });
+        // Songs.create({
+        //     url: "https://soundcloud.com/muskacirca/diamonds",
+        //         name: "Diamonds",
+        //     author: "Atelier des Chansons"
+        // });
+        // Songs.create({
+        //     url: "https://soundcloud.com/muskacirca/mr-tambourine-man",
+        //         name: "Tambourine Man",
+        //     author: "Atelier des Chansons"
+        // });
+        // Songs.create({
+        //     url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
+        //         name: "Blowin' in the Wind",
+        //     author: "Atelier des Chansons"
+        // });
+        // Songs.create({
+        //     url: "https://soundcloud.com/outofpeace/the-fall",
+        //         name: "The Fall",
+        //     author: "Out of Peace"
+        // });
+        // Songs.create({
+        //     url: "https://soundcloud.com/outofpeace/the-key-is-somewhere-else",
+        //         name: "The Key is Somewhere Else",
+        //     author: "Out of Peace"
+        // });
+        // Songs.create({
+        //     url: "https://soundcloud.com/djmadkat/kay-kessinger-kontakt",
+        //         name: "Kontakt",
+        //     author: "KAY KESSIINGER"
+        // });
+        // Songs.create({
+        //     url: "https://soundcloud.com/djmadkat/double-m-kenun-kay-kessinger",
+        //         name: "Double M Kenun",
+        //     author: "KAY KESSIINGER"
+        // });
     });
 
 export default connection

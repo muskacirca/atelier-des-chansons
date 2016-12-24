@@ -7,44 +7,48 @@ import axios from 'axios'
 import FileSaver from 'file-saver'
 
 var latelier = require('./style/latelier.png');
-
 const playlist = [
+    {
+        url: "https://soundcloud.com/user-29395467/amaranth",
+        name: "Amaranth",
+        author: "L'Atelier"
+    },
     {
         url: "https://soundcloud.com/muskacirca/diamonds",
         name: "Diamonds",
-        author: "Atelier des Chansons"
+        author: "L'Atelier"
     },
     {
         url: "https://soundcloud.com/muskacirca/mr-tambourine-man",
         name: "Tambourine Man",
-        author: "Atelier des Chansons"
+        author: "L'Atelier"
     },
     {
         url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
         name: "Blowin' in the Wind",
-        author: "Atelier des Chansons"
-    },
-    {
-        url: "https://soundcloud.com/outofpeace/the-fall",
-        name: "The Fall",
-        author: "Out of Peace"
-    },
-    {
-        url: "https://soundcloud.com/outofpeace/the-key-is-somewhere-else",
-        name: "The Key is Somewhere Else",
-        author: "Out of Peace"
-    },
-    {
-        url: "https://soundcloud.com/djmadkat/kay-kessinger-kontakt",
-        name: "Kontakt",
-        author: "KAY KESSIINGER"
-    },
-
-    {
-        url: "https://soundcloud.com/djmadkat/double-m-kenun-kay-kessinger",
-        name: "Double M Kenun",
-        author: "KAY KESSIINGER"
+        author: "L'Atelier"
     }
+    // {
+    //     url: "https://soundcloud.com/outofpeace/the-fall",
+    //     name: "The Fall",
+    //     author: "Out of Peace"
+    // },
+    // {
+    //     url: "https://soundcloud.com/outofpeace/the-key-is-somewhere-else",
+    //     name: "The Key is Somewhere Else",
+    //     author: "Out of Peace"
+    // },
+    // {
+    //     url: "https://soundcloud.com/djmadkat/kay-kessinger-kontakt",
+    //     name: "Kontakt",
+    //     author: "KAY KESSIINGER"
+    // },
+    //
+    // {
+    //     url: "https://soundcloud.com/djmadkat/double-m-kenun-kay-kessinger",
+    //     name: "Double M Kenun",
+    //     author: "KAY KESSIINGER"
+    // }
 ];
 
 import './intro.css'
