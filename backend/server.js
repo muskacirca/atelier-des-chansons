@@ -19,20 +19,20 @@ app.set('port', (process.env.PORT || 3001));
 
 app.use('/style', express.static(path.resolve(__dirname, '../frontend/src/lib')));
 
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
 
     app.use(express.static('../frontend/build'));
     app.use('/static/js', express.static(path.resolve(__dirname, '../frontend/build/static/js')));
-
     app.use('/static/css', express.static(path.resolve(__dirname, '../frontend/build/static/css')));
+    app.use('/static/media', express.static(path.resolve(__dirname, '../frontend/build/static/media')));
 
     app.get('/', (req, res) => {
         res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
     });
-}
+// }
 
 app.post('/rs/contact', function(req, res) {
-    let contact = req.body
+    let contact = req.body;
     ContactService.insertContact(contact.name, contact.email);
 });
 
