@@ -51,26 +51,30 @@ class ModalWrapper extends React.Component {
                                 <p>
                                     You will have access to exclusive content such as songs and nice video.    
                                 </p>
-                                <div className="form-group">
-                                    <label htmlFor="subscriptionName">Your name</label>
-                                    <input
-                                        id="subscriptionName"
-                                        ref="subscriptionName"
-                                        className="form-control"
-                                        placeholder="Enter your name"
-                                        type="text"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="subscriptionEmail">Email address</label>
-                                    <input
-                                        id="subscriptionEmail"
-                                        ref="subscriptionEmail"
-                                        className="form-control"
-                                        placeholder="Enter your email"
-                                        type="email"
-                                    />
-                                </div>
+                                <form data-toggle="validator" role="form">
+                                    <div className="form-group">
+                                        <label htmlFor="subscriptionName">Your name</label>
+                                        <input
+                                            id="subscriptionName"
+                                            ref="subscriptionName"
+                                            className="form-control"
+                                            placeholder="Enter your name"
+                                            type="text"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="subscriptionEmail">Email address</label>
+                                        <input
+                                            id="subscriptionEmail"
+                                            ref="subscriptionEmail"
+                                            className="form-control"
+                                            placeholder="Enter your email"
+                                            type="email"
+                                            required
+                                        />
+                                    </div>
+                                </form>
                                
                             </Modal.Body>
                             <Modal.Footer>

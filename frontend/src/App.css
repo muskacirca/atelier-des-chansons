@@ -39,13 +39,6 @@
   margin-bottom: 0em;
 }
 
-.page-info-1 img {
-  height: auto;
-  width: auto;
-  max-width: 400px;
-  max-height: 400px;
-  margin: auto;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -65,32 +58,6 @@ i.pointer {
   display: flex;
   flex-direction: column;
 }
-
-.page-info-2 {
-
-  min-height: 500px;
-  background-color: white;
-
-  border-top: 1px #ccc9c9 solid;
-  border-bottom: 1px #ccc9c9 solid;
-
-  display: flex;
-  justify-content: center;
-}
-
-.page-info-1 {
-  min-height: 500px;
-
-  display: flex;
-  flex-direction: column;
-  /* justify-content: flex-start; */
-  margin: auto;
-
-}
-
-
-
-
 
 /*
 

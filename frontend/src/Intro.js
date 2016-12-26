@@ -3,6 +3,8 @@ import React from 'react'
 import SmallPlayer from './player/SmallPlayer'
 import Modal from './utils/Modal'
 import axios from 'axios'
+import Alert from './utils/Alert'
+var $ = require('jquery');
 
 import FileSaver from 'file-saver'
 
@@ -132,15 +134,28 @@ class Intro extends React.Component {
 
     saveContact(name, email) {
 
-        return this.handleAuth(axios({
-            url: '/rs/contact',
-            method: 'POST',
-            crossOrigin: true,
-            type: 'json',
-            data: {
-                name: name, email: email
-            }
-        }));
+
+        console.log("saving contact : " + JSON.stringify(name));
+        // return this.handleAuth(axios({
+        //     url: '/rs/contact',
+        //     method: 'POST',
+        //     crossOrigin: true,
+        //     type: 'json',
+        //     data: 
+        // }));
+
+
+    axios.post('/rs/contact', {name: name, email: email})
+        .then((response) => {
+            console.log("save contact response: " + JSON.stringify(response.data))
+
+            $('html, body').animate({scrollTop: '0px'}, 1000);
+            this.setState({message: response.data})
+        })
+        .catch((response) => {
+            console.log("save contact error response: " + JSON.stringify(response.data))
+        })
+        
     }
 
     handleAuth(loginPromise) {
@@ -148,10 +163,10 @@ class Intro extends React.Component {
         // eslint-disable-next-line
         return loginPromise
             .then((response) => {
-               console.log("save contact response: " + JSON.stringify(response))
-            })
-            .catch(response => {
-                console.log("error response: " + JSON.stringify(response))
+                console.log("save contact response: " + JSON.stringify(response.data))
+
+                $('html, body').animate({scrollTop: '0px'}, 1000);
+                this.setState({message: response.data})
             })
     }
 
@@ -162,9 +177,9 @@ class Intro extends React.Component {
 
     startPolling() {
         var self = this;
-        setTimeout(function() {
-            self._timer = setInterval(self.changeLogo.bind(self), 10000);
-        }, 10000);
+        setTimeout(() => {
+            self._timer = setInterval(self.changeLogo.bind(self), 20000);
+        }, 20000);
     }
 
     changeLogo() {
@@ -173,14 +188,31 @@ class Intro extends React.Component {
         })
     }
 
+    onMessageAlertDismiss() {
+        this.setState({message: null})
+    }
+
+    renderAlert() {
+        
+        if(this.state.message) {
+            console.log("render alert")
+            let alert = {
+                type: this.state.message.success ? "success" : "danger",
+                message: this.state.message.success ? "Welcome " + this.state.message.data.name : "An unexpected error occurred ... Please try again later"
+            };
+            return <Alert delay={10000} alert={alert} onDismiss={this.onMessageAlertDismiss.bind(this)}/>
+        }
+    }
+
     render() {
 
         let songs = this.renderSongList(playlist);
         let modal = this.renderModal();
+        let alert = this.renderAlert();
 
         return  <div className="App-container">
 
-                    <div className="page-info-1">
+                    <div className="page-info-1 primary-color">
                         <div className="intro-logo">
                             <img width="15%" src={this.state.jpLogo ? latelierJP : latelier} alt="L'Atelier" />
                         </div>
@@ -198,13 +230,16 @@ class Intro extends React.Component {
                             // location={this.props.location.pathname}
                         />
                     </div>
+                    <div className="welcome-message">
+                        {alert}
+                    </div>
                     <div className="page-info-2">
                         <div className="info-container">
                             <h1>L'Atelier EP 2016</h1>
                             {songs}
                         </div>
                     </div>
-                    <div className="follow-banner">
+                    <div className="follow-banner primary-color">
                         <div className="info-container">
                             <div>Follow us on :</div>
                             <div className="icon-content">

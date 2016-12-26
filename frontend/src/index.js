@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './style/css/bootstrap.min.css'
 import './style/css/font-awesome.min.css'
+
+
 import Intro from './Intro'
 
 import {

@@ -17,9 +17,9 @@ app.use(function (req, res, next) {
 
 app.set('port', (process.env.PORT || 3001));
 
-app.use('/style', express.static(path.resolve(__dirname, '../frontend/src/lib')));
+app.use('/style/js', express.static(path.resolve(__dirname, '../frontend/src/style/js')));
 
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
 
     app.use(express.static('../frontend/build'));
     app.use('/static/js', express.static(path.resolve(__dirname, '../frontend/build/static/js')));
@@ -29,11 +29,14 @@ app.use('/style', express.static(path.resolve(__dirname, '../frontend/src/lib'))
     app.get('/', (req, res) => {
         res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
     });
-// }
+}
 
 app.post('/rs/contact', function(req, res) {
     let contact = req.body;
-    ContactService.insertContact(contact.name, contact.email);
+    ContactService.insertContact(contact.name, contact.email)
+        .then(response => {
+            res.send(response)
+        })
 });
 
 app.get('/songs', function(req, res) {
