@@ -26,8 +26,9 @@ class ModalWrapper extends React.Component {
     }
     
     onSubmit() {
-        let email = this.refs.subscriptionEmail.value
-        this.props.onSubmit(email)
+        let name = this.refs.subscriptionName.value;
+        let email = this.refs.subscriptionEmail.value;
+        this.props.onSubmit(name, email)
     }
     
     render() {
@@ -50,6 +51,16 @@ class ModalWrapper extends React.Component {
                                 <p>
                                     You will have access to exclusive content such as songs and nice video.    
                                 </p>
+                                <div className="form-group">
+                                    <label htmlFor="subscriptionName">Your name</label>
+                                    <input
+                                        id="subscriptionName"
+                                        ref="subscriptionName"
+                                        className="form-control"
+                                        placeholder="Enter your name"
+                                        type="text"
+                                    />
+                                </div>
                                 <div className="form-group">
                                     <label htmlFor="subscriptionEmail">Email address</label>
                                     <input

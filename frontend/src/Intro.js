@@ -7,6 +7,7 @@ import axios from 'axios'
 import FileSaver from 'file-saver'
 
 var latelier = require('./style/latelier.png');
+var latelierJP = require('./style/latelier-japanese.png');
 const playlist = [
     {
         url: "https://soundcloud.com/user-29395467/amaranth",
@@ -58,6 +59,7 @@ class Intro extends React.Component {
         super(props);
 
         this.state = {
+            jpLogo: false,
             screen: 2,
             isNavbarFixed: false,
             currentTrack: playlist[0],
@@ -65,6 +67,10 @@ class Intro extends React.Component {
             modalOpen: false,
             index: 0
         }
+    }
+
+    componentDidMount() {
+        this.startPolling()
     }
 
     nextSong() {
@@ -145,13 +151,26 @@ class Intro extends React.Component {
                console.log("save contact response: " + JSON.stringify(response))
             })
             .catch(response => {
-                console.log("error respoonse: " + JSON.stringify(response))
+                console.log("error response: " + JSON.stringify(response))
             })
     }
 
-    onModalSubmit(email) {
-       this.saveContact("John Doe", email);
+    onModalSubmit(name, email) {
+       this.saveContact(name, email);
        this.setState({modalOpen: false})
+    }
+
+    startPolling() {
+        var self = this;
+        setTimeout(function() {
+            self._timer = setInterval(self.changeLogo.bind(self), 10000);
+        }, 10000);
+    }
+
+    changeLogo() {
+        this.setState({
+            jpLogo: !this.state.jpLogo
+        })
     }
 
     render() {
@@ -163,7 +182,7 @@ class Intro extends React.Component {
 
                     <div className="page-info-1">
                         <div className="intro-logo">
-                            <img width="15%" src={latelier} alt="L'Atelier" />
+                            <img width="15%" src={this.state.jpLogo ? latelierJP : latelier} alt="L'Atelier" />
                         </div>
                         <div className="sub-menu-container">
                             <div>Hand</div>
