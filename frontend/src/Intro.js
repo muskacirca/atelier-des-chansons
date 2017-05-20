@@ -14,23 +14,23 @@ const playlist = [
     {
         url: "https://soundcloud.com/atelierdeschansons/amaranth",
         name: "Amaranth",
-        author: "L'Atelier"
+        author: "ATELIER"
     },
     {
-        url: "https://soundcloud.com/muskacirca/diamonds",
-        name: "Diamonds",
-        author: "L'Atelier"
+        url: "https://soundcloud.com/atelierdeschansons/change-change",
+        name: "Change Change",
+        author: "ATELIER"
     },
     {
-        url: "https://soundcloud.com/muskacirca/mr-tambourine-man",
-        name: "Tambourine Man",
-        author: "L'Atelier"
+        url: "https://soundcloud.com/atelierdeschansons/your-eyes",
+        name: "Your Eyes",
+        author: "ATELIER"
     },
-    {
-        url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
-        name: "Blowin' in the Wind",
-        author: "L'Atelier"
-    }
+    // {
+    //     url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
+    //     name: "Blowin' in the Wind",
+    //     author: "L'Atelier"
+    // }
     // {
     //     url: "https://soundcloud.com/outofpeace/the-fall",
     //     name: "The Fall",
