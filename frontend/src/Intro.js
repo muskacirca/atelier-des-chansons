@@ -266,7 +266,7 @@ class Intro extends React.Component {
                         <div className="info-container">
                             <h1>Next Shows</h1>
                             <div className="info-item">
-                                <p>Café de la Plage, Paris France - 07/01/2017</p>
+                                <p>Yerres France - 10/06/2017</p>
                             </div>
                         </div>
                     </div>
