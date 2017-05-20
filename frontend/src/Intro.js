@@ -12,7 +12,7 @@ var latelier = require('./style/latelier.png');
 var latelierJP = require('./style/latelier-japanese.png');
 const playlist = [
     {
-        url: "https://soundcloud.com/user-29395467/amaranth",
+        url: "https://soundcloud.com/atelierdeschansons/amaranth",
         name: "Amaranth",
         author: "L'Atelier"
     },
