@@ -24,10 +24,7 @@ class Player extends React.Component {
             loaded: 0,
             duration: 0,
             isMenuOpen: false,
-            modalOpen: false,
-          soundcloudConfig: {
-                clientId: "AeXXLnv9KyC2WxsmSTofNHgNlGKzd54y"
-          }
+            modalOpen: false
         };
 
         this.playPause = this.playPause.bind(this);

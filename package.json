@@ -1,5 +1,5 @@
 {
-  "name": "my-car-doctor",
+  "name": "ATELIER",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nf start -p 3000 --procfile Procfile.dev",
     "server": "babel-node backend/server.js"
   },
-  "author": "",
+  "author": "Vincent Truchot",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
