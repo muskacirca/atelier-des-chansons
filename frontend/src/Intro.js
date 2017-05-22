@@ -4,12 +4,13 @@ import SmallPlayer from './player/SmallPlayer'
 import Modal from './utils/Modal'
 import axios from 'axios'
 import Alert from './utils/Alert'
-var $ = require('jquery');
+const $ = require('jquery');
 
 import FileSaver from 'file-saver'
 
-var latelier = require('./style/latelier.png');
-var latelierJP = require('./style/latelier-japanese.png');
+const latelier = require('./style/latelier.png');
+const latelierJP = require('./style/latelier-japanese.png');
+const atelierSakura = require('./style/atelier-sakura.png');
 const playlist = [
     {
         url: "https://soundcloud.com/atelierdeschansons/amaranth",
@@ -209,12 +210,13 @@ class Intro extends React.Component {
         let songs = this.renderSongList(playlist);
         let modal = this.renderModal();
         let alert = this.renderAlert();
+        let logoPath = atelierSakura; //this.state.jpLogo ? latelierJP : latelier
 
         return  <div className="App-container">
 
                     <div className="page-info-1 primary-color">
                         <div className="intro-logo">
-                            <img width="15%" src={this.state.jpLogo ? latelierJP : latelier} alt="L'Atelier" />
+                            <img width="15%" src={logoPath} alt="L'Atelier" />
                         </div>
                         <div className="sub-menu-container">
                             <div>Hand</div>
@@ -267,6 +269,7 @@ class Intro extends React.Component {
                             <h1>Next Shows</h1>
                             <div className="info-item">
                                 <p>Yerres France - 10/06/2017</p>
+                                <p>Paris - 21/06/2017</p>
                             </div>
                         </div>
                     </div>
