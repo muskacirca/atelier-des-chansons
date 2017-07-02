@@ -5,11 +5,13 @@ import Modal from './utils/Modal'
 import axios from 'axios'
 import Alert from './utils/Alert'
 
+import InstagramEmbed from 'react-instagram-embed'
+
 const $ = require('jquery');
 
 const latelier = require('./style/latelier.png');
-const atelierSakura = require('./style/atelier-sakura.png');
-const banner = require('./style/banner.png');
+const atelierSakura = require('./style/atelier-sakura-light.png');
+const banner = require('./style/banner-light.jpg');
 const ep = require('./style/EP.png');
 const playlist = [
   {
@@ -186,7 +188,7 @@ class Intro extends React.Component {
     let modal = this.renderModal();
     let alert = this.renderAlert();
     let logoPath = atelierSakura; //this.state.jpLogo ? latelierJP : latelier
-    let introMessage = "First EP available on sale on Bandcamp"
+    let introMessage = "First EP available for sale on Bandcamp"
 
     return <div id="App-container">
 
@@ -209,16 +211,30 @@ class Intro extends React.Component {
           onBackward={this.previousSong.bind(this)}
           // location={this.props.location.pathname}
         />
+        <div className="welcome-message">
+          {alert ? alert : introMessage}
+        </div>
       </div>
-      <div className="welcome-message">
-        {alert}
-      </div>
+
+
       <section className="page-info-2">
         <div className="info-container">
-          <div className="welcome-message">{introMessage}</div>
+          {/*<div className="welcome-message">{introMessage}</div>*/}
           <h1>ATELIER EP 2017</h1>
           <div className="ep-container">
             <img className="img-thumbnail thumbnail" src={ep} alt="ATELIER EP"/>
+            {/*<InstagramEmbed*/}
+              {/*url='https://www.instagram.com/p/BVxJa3ZBpaw/?taken-by=atelierdeschansons'*/}
+              {/*maxWidth={250}*/}
+              {/*hideCaption={true}*/}
+              {/*containerTagName='div'*/}
+              {/*className="thumbnail"*/}
+              {/*protocol=''*/}
+              {/*onLoading={() => {}}*/}
+              {/*onSuccess={() => {}}*/}
+              {/*onAfterRender={() => {}}*/}
+              {/*onFailure={() => {}}*/}
+            {/*/>*/}
             <div className="songs-container">
               {songs}
             </div>

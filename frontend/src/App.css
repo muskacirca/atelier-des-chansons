@@ -20,7 +20,7 @@
 
 .intro-logo {
   display: flex;
-  /*justify-content: center;*/
+  justify-content: center;
   margin-top: 5em;
   padding: 4em 4em 0em 4em;
   /*min-height: 100%;*/
@@ -162,7 +162,7 @@ i.pointer {
   }
 
   .intro-logo {
-    /*justify-content: center;*/
+    justify-content: center;
     margin-top: 2em;
     margin-bottom: 1em;
 
@@ -177,7 +177,6 @@ i.pointer {
   }
 
   .small-player-container {
-    margin-bottom: 5em;
     margin-top: 0.5em;
   }
 }

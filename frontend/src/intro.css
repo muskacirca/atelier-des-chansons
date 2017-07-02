@@ -33,7 +33,7 @@
 .page-info-1 {
     display: flex;
     flex-direction: column;
-    /*margin: auto;*/
+    margin: auto;
 
 }
 
@@ -107,8 +107,7 @@
     font-weight: 100;
     font-size: xx-large;
     min-height: 2em;
-    margin-top: 0.5em;
-    margin-bottom: 0;
+    margin: 1.5em 2em 1em;
 }
 
 .pointer:hover {
@@ -147,7 +146,7 @@
 @media only screen and (max-width: 750px) {
 
     .intro-logo {
-        /*justify-content: center;*/
+        justify-content: center;
         margin-top: 2em;
         margin-bottom: 1em;
         padding: 1em 0em 0em 0em;
