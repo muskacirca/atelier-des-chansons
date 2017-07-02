@@ -6,11 +6,10 @@ import axios from 'axios'
 import Alert from './utils/Alert'
 const $ = require('jquery');
 
-import FileSaver from 'file-saver'
-
 const latelier = require('./style/latelier.png');
-const latelierJP = require('./style/latelier-japanese.png');
 const atelierSakura = require('./style/atelier-sakura.png');
+const banner = require('./style/banner.png');
+const ep = require('./style/EP.png');
 const playlist = [
     {
         url: "https://soundcloud.com/atelierdeschansons/amaranth",
@@ -26,33 +25,7 @@ const playlist = [
         url: "https://soundcloud.com/atelierdeschansons/your-eyes",
         name: "Your Eyes",
         author: "ATELIER"
-    },
-    // {
-    //     url: "https://soundcloud.com/muskacirca/blowin-in-the-wind",
-    //     name: "Blowin' in the Wind",
-    //     author: "L'Atelier"
-    // }
-    // {
-    //     url: "https://soundcloud.com/outofpeace/the-fall",
-    //     name: "The Fall",
-    //     author: "Out of Peace"
-    // },
-    // {
-    //     url: "https://soundcloud.com/outofpeace/the-key-is-somewhere-else",
-    //     name: "The Key is Somewhere Else",
-    //     author: "Out of Peace"
-    // },
-    // {
-    //     url: "https://soundcloud.com/djmadkat/kay-kessinger-kontakt",
-    //     name: "Kontakt",
-    //     author: "KAY KESSIINGER"
-    // },
-    //
-    // {
-    //     url: "https://soundcloud.com/djmadkat/double-m-kenun-kay-kessinger",
-    //     name: "Double M Kenun",
-    //     author: "KAY KESSIINGER"
-    // }
+    }
 ];
 
 import './intro.css'
@@ -211,12 +184,15 @@ class Intro extends React.Component {
         let modal = this.renderModal();
         let alert = this.renderAlert();
         let logoPath = atelierSakura; //this.state.jpLogo ? latelierJP : latelier
+        let introMessage = "First EP available on sale on Bandcamp"
 
         return  <div className="App-container">
 
                     <div className="page-info-1 primary-color">
                         <div className="intro-logo">
-                            <img width="15%" src={logoPath} alt="L'Atelier" />
+                            <a target="_blank" href="https://atelierdeschansons.bandcamp.com">
+                                <img width="15%" src={logoPath} alt="ATELIER" />
+                            </a>
                         </div>
                         <div className="sub-menu-container">
                             <div>Hand</div>
@@ -237,23 +213,48 @@ class Intro extends React.Component {
                     </div>
                     <div className="page-info-2">
                         <div className="info-container">
-                            <h1>L'Atelier EP 2016</h1>
-                            {songs}
+                            <div className="welcome-message">{introMessage}</div>
+                            <h1>ATELIER EP 2017</h1>
+                            <div className="ep-container">
+                                <img className="img-thumbnail thumbnail" src={ep} alt="ATELIER" />
+                                <div className="songs-container">
+                                  {songs}
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div className="banner">
+                        <img width="100%"  height="50%" src={banner} alt="ATELIER" />
                     </div>
                     <div className="follow-banner primary-color">
                         <div className="info-container">
                             <div>Follow us on :</div>
                             <div className="icon-content">
-                                <a href="https://www.facebook.com/atelierdeschansons">
-                                    <i className="fa fa-2x fa-facebook-official" aria-hidden="true"/>
-                                </a>
-                                <a href="https://soundcloud.com/user-29395467">
-                                    <i className="fa fa-2x fa-soundcloud" aria-hidden="true" />
-                                </a>
+                                <div className="icon-item">
+                                    <a href="https://www.facebook.com/atelierdeschansons">
+                                        <i className="fa fa-2x fa-facebook-official" aria-hidden="true"/>
+                                    </a><span> /atelierdeschansons</span>
+                                </div>
+                                <div className="icon-item">
                                 <a href="https://atelierdeschansons.bandcamp.com/">
                                     <i className="fa fa-2x fa-bandcamp" aria-hidden="true" />
-                                </a>
+                                </a> /atelierdeschansons
+                                </div>
+                                <div className="icon-item">
+                                <a href="https://www.instagram.com/atelierdeschansons/">
+                                    <i className="fa fa-2x fa-instagram" aria-hidden="true" />
+                                </a> /atelierdeschansons
+                                </div>
+                                <div className="icon-item">
+                                <a href="https://soundcloud.com/atelierdeschansons">
+                                    <i className="fa fa-2x fa-soundcloud" aria-hidden="true" />
+                                </a> /atelierdeschansons
+                                </div>
+                                <div className="icon-item">
+                                <a href="https://twitter.com/atelierzik">
+                                    <i className="fa fa-2x fa-twitter" aria-hidden="true" />
+                                </a> /atelierzik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
                             </div>
                             <div className=" subscribe-button">
                                 <div className="pointer inline-content"  onClick={this.subscribe.bind(this)}>
@@ -268,8 +269,17 @@ class Intro extends React.Component {
                         <div className="info-container">
                             <h1>Next Shows</h1>
                             <div className="info-item">
-                                <p>Yerres France - 10/06/2017</p>
+                                <p>Book us : latelierdeschansons@gmail.com</p>
+                            </div>
+                            <h1>Past Shows</h1>
+                            <div className="info-item">
                                 <p>Paris - 21/06/2017</p>
+                            </div>
+                            <div className="info-item">
+                                <p>Yerres France - 10/06/2017</p>
+                            </div>
+                            <div className="info-item">
+                                <p>Villeneuve Le Roi France - 03/06/2017</p>
                             </div>
                         </div>
                     </div>

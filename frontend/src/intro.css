@@ -67,11 +67,21 @@
 }
 
 .icon-content {
+
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+}
+
+.icon-item {
+    margin: 0.2em;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 2em;
-    margin-top: 2em;
-
+    width: 33%;
+    align-items: center;
 }
 
 .icon-content a {
@@ -83,10 +93,8 @@
 }
 
 .info-container {
-    line-height: 0.1em;
-    display: flex;
-    flex-direction: column;
-
+    margin-left: 3em;
+    margin-right: 3em;
 }
 
 .info-item {
@@ -99,8 +107,7 @@
     font-weight: 100;
     font-size: xx-large;
     min-height: 2em;
-    margin: 0.5em;
-
+    margin-top: 0.5em;
     margin-bottom: 0;
 }
 
@@ -109,6 +116,28 @@
     color: #7c7732 !important;
 }
 
+.banner {
+
+    border-top: 1px #ccc9c9 solid;
+    border-bottom: 1px #ccc9c9 solid;
+
+}
+
+.ep-container {
+    display: flex;
+}
+
+.songs-container {
+    display: flex;
+    flex-direction: column;
+    flex: 10;
+}
+
+.thumbnail {
+    width: 33%;
+    height:33%;
+
+}
 
 /*
 
