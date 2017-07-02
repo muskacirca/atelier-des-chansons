@@ -188,12 +188,12 @@ class Intro extends React.Component {
     let logoPath = atelierSakura; //this.state.jpLogo ? latelierJP : latelier
     let introMessage = "First EP available on sale on Bandcamp"
 
-    return <div className="App-container">
+    return <div id="App-container">
 
       <div className="page-info-1 primary-color">
         <div className="intro-logo">
           <a target="_blank" href="https://atelierdeschansons.bandcamp.com">
-            <img width="15%" src={logoPath} alt="ATELIER"/>
+            <img width="15%" src={logoPath} alt="ATELIER Sakura"/>
           </a>
         </div>
         <div className="sub-menu-container">
@@ -213,24 +213,24 @@ class Intro extends React.Component {
       <div className="welcome-message">
         {alert}
       </div>
-      <div className="page-info-2">
+      <section className="page-info-2">
         <div className="info-container">
           <div className="welcome-message">{introMessage}</div>
           <h1>ATELIER EP 2017</h1>
           <div className="ep-container">
-            <img className="img-thumbnail thumbnail" src={ep} alt="ATELIER"/>
+            <img className="img-thumbnail thumbnail" src={ep} alt="ATELIER EP"/>
             <div className="songs-container">
               {songs}
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <div className="banner">
-        <img width="100%" height="50%" src={banner} alt="ATELIER"/>
+        <img width="100%" height="50%" src={banner} alt="ATELIER Band"/>
       </div>
-      <div className="follow-banner primary-color">
+      <section className="follow-banner primary-color">
         <div className="info-container">
-          <div>Follow us on :</div>
+          <h1>Follow us on</h1>
           <div className="icon-content">
             <div className="icon-item">
               <a href="https://www.facebook.com/atelierdeschansons">
@@ -267,14 +267,14 @@ class Intro extends React.Component {
           </div>
         </div>
 
-      </div>
-      <div className="page-info-2">
+      </section>
+      <section className="page-info-2">
         <div className="info-container">
-          <h1>Next Shows</h1>
+          <h1>Shows</h1>
           <div className="info-item">
             <p>Book us : latelierdeschansons@gmail.com</p>
           </div>
-          <h1>Past Shows</h1>
+          <h2>Past Shows</h2>
           <div className="info-item">
             <p>Paris - 21/06/2017</p>
           </div>
@@ -285,7 +285,7 @@ class Intro extends React.Component {
             <p>Villeneuve Le Roi France - 03/06/2017</p>
           </div>
         </div>
-      </div>
+      </section>
 
       {modal}
     </div>
