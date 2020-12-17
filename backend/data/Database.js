@@ -4,8 +4,8 @@ require("babel-polyfill");
 
 const mysql_url =  process.env.PROD_URL || "localhost";
 const mysql_schema =  process.env.PROD_SCHEMA || process.env.CLEARDB_DATABASE_SCHEMA || "atelier";
-const mysql_user = process.env.PROD_USER || process.env.CLEARDB_DATABASE_USER || "greec";
-const mysql_pass = process.env.PROD_PASS || process.env.CLEARDB_DATABASE_PASS || "test";
+const mysql_user = process.env.PROD_USER || process.env.CLEARDB_DATABASE_USER || "atelier";
+const mysql_pass = process.env.PROD_PASS || process.env.CLEARDB_DATABASE_PASS || "atelier";
 
 const connection = process.env.CLEARDB_DATABASE_URL !== undefined ? new Sequelize(process.env.CLEARDB_DATABASE_URL, {
     pool: {
