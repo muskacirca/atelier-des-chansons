@@ -1,0 +1,11 @@
+---
+application:
+  name: "atelier-des-chansons"
+  project: "atelier"
+  organization: "Soon Agency"
+routers:
+- name: "main-atelier-des-chansons"
+  routes:
+  - application_name: "atelier-des-chansons"
+    paths:
+    - "/*"
